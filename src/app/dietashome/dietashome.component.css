@@ -1,0 +1,68 @@
+
+.carta1{
+margin-top: -30px;
+margin-bottom: -110px;
+margin-left: -40px;
+margin-right: 15px;
+left: 10px;
+text-align: center;
+border: none;
+}
+    
+.tabla{
+text-align: center;
+}
+                
+.card-title {
+margin-top: -12px;
+}
+            
+.card-img-top {
+margin-top: 10px;
+width: 100px;
+margin-left: 50%;
+transform: translateX(-50%);
+}
+            
+h5{
+text-align: center;
+color: orange;
+}
+            
+h3{
+margin-top: -10px;
+}
+            
+.card-group {
+margin-top: 3px;
+margin-left: 150px;
+margin-right: 150px;
+left: -100px;
+}
+            
+.card-title {
+margin-bottom: -10px;
+}
+            
+.table-responsive {
+border: 10px;
+text-align: center;
+}
+            
+.spinner-border {
+margin-left: 30%;
+margin-top: 150px;
+}
+            
+.buscador {
+margin-top: -70px;
+margin-left: -15px;
+border: 10px;
+margin-bottom: -120px;
+}
+            
+input::-webkit-inner-spin-button {  
+-webkit-appearance: none;
+margin: 0;
+}
+

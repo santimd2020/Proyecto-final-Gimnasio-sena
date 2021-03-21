@@ -1,0 +1,40 @@
+<app-nav></app-nav>
+<link rel="stylesheet" type="text/css" href="../anuncios/anuncios.component.css">
+<div class="container">
+    <section>
+        <button class="btn btn-primary" (click)="irAgregarAnuncios()" type="button">Agregar <i class="fas fa-plus-circle"></i></button>
+        <div *ngIf="!tablaanuncios">
+            <div class="table-responsive">
+                <table datatable [dtOptions]="dtOptions" class="table table-bordered table-striped row-border hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let anuncio of anuncios">
+                            <td>{{anuncio.id}}</td>
+                            <td>{{anuncio.titulo}}</td>
+                            <td>{{anuncio.descripcion}}</td>
+                            <td><a href={{anuncio.imagen}} target="_blank"><img src="{{anuncio.imagen}}" alt=""width="200" height="100px"></a></td>
+                            <td> <button type="button" class="btn btn-danger" (click)="eliminarAnunciosId(anuncio.id)"><i class="fas fa-trash"></i></button>
+                                <button type="button" class="btn btn-warning" style="margin: 8px"(click)="editarAnunciosPorId(anuncio.id)"><i class="far fa-edit"></i></button></td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div *ngIf="!load" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </section>
+
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,120 @@
+<app-nav></app-nav>
+
+<link rel="stylesheet" type="text/css" href="../rutinahome/rutinahome.component.css">
+
+
+<div class="container">
+
+    <section>
+                           
+        <table class="table">
+            <div class="carta1">
+                <div class="row text-center">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Rutinas disponibles</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </table>
+        <button  class="btn btn-primary" (click)="irAgregarRutina()" type="button">Agregar <i class="fas fa-plus-circle"></i></button>
+        <button style="margin: 8px"  class="btn btn-primary" (click)="GenerarReporte()" type="button">Descargar <i class="fas fa-file-download"></i></button>
+        <div *ngIf="!tablarutinas">
+            <div class="table-responsive">
+                <table datatable [dtOptions]="dtOptions" class="table  table-bordered table-striped row-border hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Intensidad</th>
+                            <th scope="col">Dificultad</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let rutinas of rutinas">
+                            <td>{{rutinas.id}}</td>
+                            <td>{{rutinas.nombre}}</td>
+                            <td>{{rutinas.descripcion}}</td>
+                            <td>{{rutinas.intensidad}}</td>
+                            <td>{{rutinas.dificultad}}</td>
+                            <td>{{rutinas.categoria}}</td>
+                            <td><button type="button" class="btn btn-info" data-bs-toggle="modal"data-bs-target="#exampleModal" (click)="ejercicio(rutinas.ejercicios)"><i class="fas fa-eye"></i></button>
+                                <button type="button" style="margin: 8px" class="btn btn-danger"(click)="eliminarRutinaPorId(rutinas.id)"><i class="fas fa-trash"></i></button>
+                                <button type="button"  class="btn btn-warning" (click)="editarRutinaPorId(rutinas.id)"><i class="far fa-edit"></i></button>
+                                <button  class="btn btn-primary" style="margin-left: 8px" (click)="asignarRutinaPorId(rutinas.id)" type="button"><i class="fas fa-user"></i></button>  
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+        <div *ngIf="!load" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+        <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Lista de ejercicios</h5>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                            aria-label="Exit">Cerrar</button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <div class="tabla">
+                                <table class="table table-bordered">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Descripcion</th>
+                                            <th scope="col">Dia</th>
+                                            <th scope="col">Ejecucion</th>
+                                            <th scope="col">Id ejercicio</th>
+                                            <th scope="col">Id rutinas</th>
+                                            <th scope="col">Imagen</th>
+                                            <th scope="col">Repeticiones</th>
+                                            <th scope="col">Series</th>
+                                            <th scope="col">Tipo</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="let ejercicios of ejercicios">
+                                        <tr>
+                                            <td>{{ejercicios.nombre}}</td>
+                                            <td>{{ejercicios.descripcion}}</td>
+                                            <td>{{ejercicios.dia}}</td>
+                                            <td>{{ejercicios.ejecucion}}</td>
+                                            <td>{{ejercicios.idejercicio}}</td>
+                                            <td>{{ejercicios.idrutinas}}</td>
+                                            <td><a href={{ejercicios.imagen}} target="_blank"><img
+                                                        src="{{ejercicios.imagen}}" alt="" width="200"
+                                                        height="100px"></a></td>
+
+                                            <td>{{ejercicios.repeticiones}}</td>
+                                            <td>{{ejercicios.series}}</td>
+                                            <td>{{ejercicios.tipo}}</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+
+<app-footer></app-footer>

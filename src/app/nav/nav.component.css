@@ -1,0 +1,13 @@
+.container {
+height: -1000px;
+}
+#navbarNav{
+margin-right: -25px;
+margin-bottom: -10px;
+}
+#perfil{
+margin-left: -110px;
+}
+a{ 
+cursor:pointer;
+}

@@ -1,0 +1,406 @@
+<app-nav></app-nav>
+
+<link rel="stylesheet" type="text/css" href="../agregarrutinas/agregarrutinas.component.css">
+
+
+<div class="container">
+    <section>
+        <div class="table-responsive">
+            <table class="table">
+                <div class="carta">
+                    <div class="row text-center">
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Registro de rutinas</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </table>
+        </div>
+
+        <table class="table" *ngIf="!registro">
+            <div class="formulario">
+                <form class="row g-3-" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                    <div class="col-md-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control" formControlName="nombre">
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="tipo">
+                            <label class="form-label">Intensidad</label>
+                            <input type="text" class="form-control" formControlName="intensidad">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="form-label">Categoria</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="categoria">
+                                <option *ngFor="let categoria of categoria" [ngValue]="categoria">{{categoria}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-2">
+                        <label class="form-label">Dificultad</label>
+                        <div class="input-group mb-10">
+                            <select class="form-control" formControlName="dificultad">
+                                <option *ngFor="let dificultad of dificultad" [ngValue]="dificultad">{{dificultad}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-11">
+                        <div class="descripcion">
+                            <label class="form-label">Descripcion</label>
+                            <input type="text" class="form-control" formControlName="descripcion">
+                        </div>
+                    </div>
+
+
+                    <table class="table">
+                        <div class="carta1">
+                            <div class="row text-center">
+                                <div class="col-lg-3 col-md-6 mb-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ejercicios de la rutina</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </table>
+
+                    <div class="col-md-2">
+                        <div class="tipo">
+                            <label class="form-label">ID ejercicio</label>
+                            <input type="number" class="form-control" formControlName="id_ejercicio">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="form-label">Repeticiones</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="repeticiones">
+                                <option *ngFor="let repeticiones of repeticiones" [ngValue]="repeticiones">
+                                    {{repeticiones}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-1">
+                        <label class="form-label">Series</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="series">
+                                <option *ngFor="let series of series" [ngValue]="series">{{series}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="form-label">Dia</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="dia">
+                                <option *ngFor="let dia of dia" [ngValue]="dia">{{dia}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="tipo">
+                            <label class="form-label">Ejecucion</label>
+                            <input type="text" class="form-control" formControlName="ejecucion">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-2" *ngIf="ejercicio2">
+                        <div class="tipo">
+                            <label class="form-label">ID ejercicio</label>
+                            <input type="number" class="form-control" formControlName="id_ejercicio">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" *ngIf="ejercicio2">
+                        <label class="form-label">Repeticiones</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="repeticiones">
+                                <option *ngFor="let repeticiones of repeticiones" [ngValue]="repeticiones">
+                                    {{repeticiones}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-1" *ngIf="ejercicio2">
+                        <label class="form-label">Series</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="series">
+                                <option *ngFor="let series of series" [ngValue]="series">{{series}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" *ngIf="ejercicio2">
+                        <label class="form-label">Dia</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="dia">
+                                <option *ngFor="let dia of dia" [ngValue]="dia">{{dia}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" *ngIf="ejercicio2">
+
+                        <div class="tipo">
+                            <label class="form-label">Ejecucion</label>
+                            <input type="text" class="form-control" formControlName="ejecucion">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" *ngIf="ejercicio3">
+                        <div class="tipo">
+                            <label class="form-label">ID ejercicio</label>
+                            <input type="number" class="form-control" formControlName="id_ejercicio">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" *ngIf="ejercicio3">
+                        <label class="form-label">Repeticiones</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="repeticiones">
+                                <option *ngFor="let repeticiones of repeticiones" [ngValue]="repeticiones">
+                                    {{repeticiones}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-1" *ngIf="ejercicio3">
+                        <label class="form-label">Series</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="series">
+                                <option *ngFor="let series of series" [ngValue]="series">{{series}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" *ngIf="ejercicio3">
+                        <label class="form-label">Dia</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="dia">
+                                <option *ngFor="let dia of dia" [ngValue]="dia">{{dia}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" *ngIf="ejercicio3">
+
+                        <div class="tipo">
+                            <label class="form-label">Ejecucion</label>
+                            <input type="text" class="form-control" formControlName="ejecucion">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-2" *ngIf="ejercicio4">
+                        <div class="tipo">
+                            <label class="form-label">ID ejercicio</label>
+                            <input type="number" class="form-control" formControlName="id_ejercicio">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" *ngIf="ejercicio4">
+                        <label class="form-label">Repeticiones</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="repeticiones">
+                                <option *ngFor="let repeticiones of repeticiones" [ngValue]="repeticiones">
+                                    {{repeticiones}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-1" *ngIf="ejercicio4">
+                        <label class="form-label">Series</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="series">
+                                <option *ngFor="let series of series" [ngValue]="series">{{series}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" *ngIf="ejercicio4">
+                        <label class="form-label">Dia</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="dia">
+                                <option *ngFor="let dia of dia" [ngValue]="dia">{{dia}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" *ngIf="ejercicio4">
+
+                        <div class="tipo">
+                            <label class="form-label">Ejecucion</label>
+                            <input type="text" class="form-control" formControlName="ejecucion">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-2" *ngIf="ejercicio5">
+                        <div class="tipo">
+                            <label class="form-label">ID ejercicio</label>
+                            <input type="number" class="form-control" formControlName="id_ejercicio">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" *ngIf="ejercicio5">
+                        <label class="form-label">Repeticiones</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="repeticiones">
+                                <option *ngFor="let repeticiones of repeticiones" [ngValue]="repeticiones">
+                                    {{repeticiones}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-1" *ngIf="ejercicio5">
+                        <label class="form-label">Series</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="series">
+                                <option *ngFor="let series of series" [ngValue]="series">{{series}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" *ngIf="ejercicio5">
+                        <label class="form-label">Dia</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="dia">
+                                <option *ngFor="let dia of dia" [ngValue]="dia">{{dia}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" *ngIf="ejercicio5">
+
+                        <div class="tipo">
+                            <label class="form-label">Ejecucion</label>
+                            <input type="text" class="form-control" formControlName="ejecucion">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" *ngIf="ejercicio6">
+                        <div class="tipo">
+                            <label class="form-label">ID ejercicio</label>
+                            <input type="number" class="form-control" formControlName="id_ejercicio">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" *ngIf="ejercicio6">
+                        <label class="form-label">Repeticiones</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="repeticiones">
+                                <option *ngFor="let repeticiones of repeticiones" [ngValue]="repeticiones">
+                                    {{repeticiones}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-1" *ngIf="ejercicio6">
+                        <label class="form-label">Series</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="series">
+                                <option *ngFor="let series of series" [ngValue]="series">{{series}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" *ngIf="ejercicio6">
+                        <label class="form-label">Dia</label>
+                        <div class="input-group mb-3">
+
+                            <select class="form-control" formControlName="dia">
+                                <option *ngFor="let dia of dia" [ngValue]="dia">{{dia}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" *ngIf="ejercicio6">
+
+                        <div class="tipo">
+                            <label class="form-label">Ejecucion</label>
+                            <input type="text" class="form-control" formControlName="ejecucion">
+                        </div>
+                    </div>
+
+                    <div class="col-8"><br>
+                        <button type="button" class="btn btn-primary" (click)="n_ejercicios()">Agregar
+                            ejercicios</button>
+                    </div>
+
+                    <div class="col-8"><br>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </table>
+
+
+        <div *ngIf="!load" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+    </section>
+
+</div>
+
+<app-footer></app-footer>

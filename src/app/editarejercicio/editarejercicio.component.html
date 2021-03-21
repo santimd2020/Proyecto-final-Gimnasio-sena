@@ -1,0 +1,87 @@
+<app-nav></app-nav>
+
+<link rel="stylesheet" type="text/css" href="../editarejercicio/editarejercicio.component.css">
+
+
+<div class="container">
+
+    <section>
+        <table class="table">
+            <div class="carta">
+                <div class="row text-center">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Actualizar de ejercicios</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </table>
+
+
+       
+            <table class="table" *ngIf="!registro">
+                <div class="formulario">
+                    <form class="row g-3-" [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="col-md-8">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control" formControlName="nombre">
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="tipo">
+                                <label class="form-label">Tipo</label>
+                                <input value="r" type="text" class="form-control" formControlName="tipo" id="tipo">
+                            </div>
+                        </div>
+
+                        <div class="col-md-1">
+                            <div class="id">
+                                <label class="form-label">id</label>
+                                <input type="text" class="form-control" formControlName="id">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="archivoCapturado" class="form-label">Imagen</label>
+                            <input class="form-control" type="file" id="archivoCapturado" name="archivoCapturado"
+                                placeholder="" (change)="capturarFile($event)">
+
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="descripcion">
+                                <label class="form-label">Descripcion</label>
+                                <input type="text" class="form-control" formControlName="descripcion" id="descripcion">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" *ngFor="let ejerciciosPorId of ejerciciosPorId">
+                            <br>
+                            <a href={{ejerciciosPorId.imagen}} target="_blank"><img src="{{ejerciciosPorId.imagen}}"
+                                    alt="" width="200" height="100px"></a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <br>
+                            <div *ngIf="previsualizacion">
+                                <img [src]="previsualizacion" alt="" width="100px" height="100px">
+                            </div>
+                        </div>
+
+                        <div class="col-8"><br>
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </table>
+      
+
+        <div *ngIf="!load" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </section>
+
+</div>
+
+<app-footer></app-footer>

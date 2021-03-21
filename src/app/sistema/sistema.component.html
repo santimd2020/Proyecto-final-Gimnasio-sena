@@ -1,0 +1,69 @@
+<app-nav></app-nav>
+<link rel="stylesheet" type="text/css" href="../sistema/sistema.component.css">
+<div class="container">
+    <section>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Calcular test</h5>
+                        <button class="btn btn-primary" (click)="CalcularTest()" type="button"><i
+                                class="fas fa-stethoscope"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Descargar reporte</h5>
+                        <button class="btn btn-success" (click)="DescargarReporte()" type="button"><i
+                                class="fas fa-download"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestionar anuncios</h5>
+                        <button class="btn btn-warning" (click)="IrAnuncios()" type="button"><i
+                                class="far fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div *ngIf="!tablatest">
+            <div class="table-responsive">
+                <table datatable [dtOptions]="dtOptions" class="table table-bordered table-striped row-border hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Documento</th>
+                            <th scope="col">IMC</th>
+                            <th scope="col">Peso</th>
+                            <th scope="col">Talla</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let test of tests">
+                            <td>{{test.nombres}}</td>
+                            <td>{{test.apellidos}}</td>
+                            <td>{{test.documento}}</td>
+                            <td>{{test.imc}}</td>
+                            <td>{{test.peso}}</td>
+                            <td>{{test.talla}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div *ngIf="!load" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </section>
+
+</div>
+
+<app-footer></app-footer>

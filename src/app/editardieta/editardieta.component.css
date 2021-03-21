@@ -1,0 +1,31 @@
+.btn {
+font-weight: 500;
+}
+        
+h5{
+text-align: center;
+color: orange;
+}
+    
+.carta{
+margin-top: -35px;
+margin-bottom: -55px;
+margin-right: 112px;
+margin-left: -20px;
+left: 10px;
+text-align: center;
+}
+               
+.card-title {
+margin-bottom: -10px;
+margin-top: -12px;
+}
+        
+.spinner-border {
+margin-left: 50%;
+margin-top: 150px;
+}
+        
+.container {
+height: -1000px;
+}
