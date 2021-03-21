@@ -35,7 +35,7 @@ export class EditaranuncioComponent implements OnInit {
       titulo: ['', Validators.required],
       descripcion: ['', Validators.required]
     });
-  
+
     this.form.get('id').disable();
     this.sistema.getRequestIdAnuncio('https://gymsenajorge.herokuapp.com/consultarAnuncios/' + this.numeroid, localStorage.getItem('token'))
       .subscribe(
@@ -117,12 +117,20 @@ export class EditaranuncioComponent implements OnInit {
     const formularioDeDatos = new FormData();
     // El formData permiten compilar un conjunto de pares clave/valor para enviar mediante XMLHttpRequest
 
+    if (this.archivos.length >= 1){
     this.archivos.forEach(archivo => {
       //Se agrega los elementos a la lista formulario de datos.
       formularioDeDatos.append('imagen', archivo, archivo.name);
       formularioDeDatos.append('titulo', this.form.value.titulo);
       formularioDeDatos.append('descripcion', this.form.value.descripcion);
     })
+  }
+    else {
+      formularioDeDatos.append('url', this.imagen);
+      formularioDeDatos.append('titulo', this.form.value.titulo);
+      formularioDeDatos.append('descripcion', this.form.value.descripcion);
+
+  }
 
     if (this.form.valid) {
       //Si el formulario es valido, se llama servicio y envia se apunta directamente al serve.
