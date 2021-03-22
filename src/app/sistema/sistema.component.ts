@@ -15,6 +15,7 @@ export class SistemaComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   tests;
   load = false;
+  estadisticas;
 
   constructor(
     private sistema: SistemaService,
@@ -148,5 +149,34 @@ export class SistemaComponent implements OnInit {
     setTimeout(() => {
       this.route.navigate(['/anuncios']);
     }, 2000);
+  }
+
+
+  Estadisticas() {
+    this.sistema.getRequestAllestadisticas('https://gymsenajorge.herokuapp.com/estadisticas', localStorage.getItem('token'))
+    .subscribe(
+      (data): any => {
+        //Se guarda los datos que trae el json del serve, ala propiedad dietas.
+        this.estadisticas = data['estadisticas']
+        console.log(data)
+        //Se imprime el mensaje del serve y se le notifica al usuario.
+        if (this.tests == null) {
+          //Se hace una validacion, en donde si dietas queda vacio signifca que el token vencio y se debe renovar.
+          Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            showConfirmButton: false,
+            title: 'Session Expirada',
+            timer: 2000
+          })
+          //Se limpia el localStorga y se redirige al login para generar un nuevo token.
+          //localStorage.clear();
+          setTimeout(() => {
+            //Se redireciona a la pantalla principal.
+            this.route.navigate(['/']);
+          }, 2000);
+        }
+      },
+      error => { console.log(error) })
   }
 }

@@ -76,14 +76,7 @@ export class NavComponent implements OnInit {
   }
 
   irIngresar() {
-    Swal.fire({
-      position: 'center',
-      icon: 'info',
-      title: 'Pagina en construccion',
-      footer: 'Disculpe las molestias',
-      showConfirmButton: false,
-      timer: 2000
-    })
+    this.route.navigate(['/registrarusuario']);
   }
 
   irSistema() {

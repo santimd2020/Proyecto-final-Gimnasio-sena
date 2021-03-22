@@ -23,6 +23,8 @@ import { AnunciosComponent } from './anuncios/anuncios.component';
 import { AgregaranuncioComponent } from './agregaranuncio/agregaranuncio.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EditaranuncioComponent } from './editaranuncio/editaranuncio.component';
+import { RegistrousuarioComponent } from './registrousuario/registrousuario.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 
 
@@ -45,7 +47,9 @@ import { EditaranuncioComponent } from './editaranuncio/editaranuncio.component'
     SistemaComponent,
     AnunciosComponent,
     AgregaranuncioComponent,
-    EditaranuncioComponent
+    EditaranuncioComponent,
+    RegistrousuarioComponent,
+    UsuariosComponent
 
   ],
   imports: [

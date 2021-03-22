@@ -14,10 +14,14 @@ import { SistemaComponent } from './sistema/sistema.component';
 import { AnunciosComponent } from './anuncios/anuncios.component';
 import { AgregaranuncioComponent } from './agregaranuncio/agregaranuncio.component';
 import { EditaranuncioComponent } from './editaranuncio/editaranuncio.component';
+import { RegistrousuarioComponent } from './registrousuario/registrousuario.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'usuarios', component: UsuariosComponent },
+  { path: 'registrarusuario', component: RegistrousuarioComponent },
   { path: 'sistema', component: SistemaComponent },
   { path: 'rutinas', component: RutinahomeComponent },
   { path: 'ejercicios', component: ConsultaejerciciosComponent },
