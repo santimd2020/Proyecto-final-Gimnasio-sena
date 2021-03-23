@@ -22,7 +22,6 @@ export class SistemaComponent implements OnInit {
     private route: Router) { }
 
   ngOnInit(): void {
-
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,

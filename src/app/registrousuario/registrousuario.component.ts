@@ -13,7 +13,7 @@ export class RegistrousuarioComponent implements OnInit {
   form: FormGroup;
   load: boolean = true;
   registro: boolean = false;
-  idprogramas: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'no aplica']
+  idprogramas: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   jornada: any = ['mixta', 'diurna', 'nocturna', 'no aplica']
   tipouser: any = ['Usuario', 'Administrador']
   tipopersona: any = ['Aprendiz', 'Funcionario']
@@ -63,9 +63,9 @@ export class RegistrousuarioComponent implements OnInit {
     this.registro = true;
     if (this.form.valid) {
       //Si el formulario es valido se llama al servicio y se apunta al serve para enviar los datos
-      this.usuarios.registrarDietas('https://gymsenapinzon.herokuapp.com/registrarusuario', {
-        nombre: this.form.value.nombre,
-        apellido: this.form.value.apellidos,
+      this.usuarios.registrarUsuarios('https://gymsenapinzon.herokuapp.com/registrarusuario', {
+        nombres: this.form.value.nombres,
+        apellidos: this.form.value.apellidos,
         documento: this.form.value.documento,
         ficha: this.form.value.ficha,
         correo: this.form.value.correo,
@@ -74,7 +74,7 @@ export class RegistrousuarioComponent implements OnInit {
         edad: this.form.value.edad,
         jornada: this.form.value.jornada,
         tipopersona: this.form.value.tipopersona,
-        tipouser: this.form.value.tipouser,
+        tipouser: this.form.value.tipouser.toLowerCase()
         //Se envia el token de autenticacion
       }, localStorage.getItem('token')).subscribe(
         (response): any => {

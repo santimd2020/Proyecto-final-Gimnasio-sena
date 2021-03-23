@@ -1,0 +1,31 @@
+.spinner-border {
+    margin-left: 50%;
+    margin-top: 110px;
+}
+.card-body{
+    margin: auto;
+    text-align: center;
+}
+.table-responsive{
+    text-align: center;
+}
+.tabla{
+    text-align: center;
+}
+.modal {
+    padding: 0 !important;
+  }
+  .modal .modal-dialog {
+    width: 95%;
+    max-width: none;
+    height: 95%;
+    margin: 5;
+  }
+  .modal .modal-content {
+    height: 95%;
+    border: 0;
+    border-radius: 0;
+  }
+  .modal .modal-body {
+    overflow-y: auto;
+  }

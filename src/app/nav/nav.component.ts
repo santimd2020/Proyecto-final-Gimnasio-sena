@@ -76,7 +76,7 @@ export class NavComponent implements OnInit {
   }
 
   irIngresar() {
-    this.route.navigate(['/registrarusuario']);
+    this.route.navigate(['/usuarios']);
   }
 
   irSistema() {

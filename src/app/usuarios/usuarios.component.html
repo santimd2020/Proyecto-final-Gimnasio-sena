@@ -1,1 +1,154 @@
-<p>usuarios works!</p>
+<app-nav></app-nav>
+<link rel="stylesheet" type="text/css" href="../usuarios/usuarios.component.css">
+<div class="container">
+    <section>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Registrar Usuario</h5>
+                        <button class="btn btn-primary" (click)="RegistrarUsuario()" type="button"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Registrar Entrada</h5>
+                        <button class="btn btn-success" (click)="RegistrarEntrada()" type="button"><i
+                                class="fas fa-door-open"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Registrar Salida</h5>
+                        <button class="btn btn-warning" (click)="SalidaUsuarios()" type="button"><i
+                                class="fas fa-door-closed"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Consultar Ingresos</h5>
+                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            (click)="ConsultarEntrada()" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Estadisticas del sistema</h5>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                            aria-label="Exit">Cerrar</button>
+                    </div>
+                    <div class="modal-body">
+
+                        <table datatable [dtOptions]="dtOptions" class="table  table-bordered table-striped row-border hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Apellido</th>
+                                        <th scope="col">Edad</th>
+                                        <th scope="col">ID persona</th>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Ficha</th>
+                                        <th scope="col">Hora entrada</th>
+                                        <th scope="col">Hora salida</th>
+                                        <th scope="col">Jornada</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let ingresos of ingreso">
+                                        <td>{{ingresos.nombres}}</td>
+                                        <td>{{ingresos.apellidos}}</td>
+                                        <td>{{ingresos.edad}}</td>
+                                        <td>{{ingresos.documento}}</td>
+                                        <td>{{ingresos.fecha}}</td>
+                                        <td>{{ingresos.ficha}}</td>
+                                        <td>{{ingresos.horaentrada}}</td>
+                                        <td>{{ingresos.horasalida}}</td>
+                                        <td>{{ingresos.jornada}}</td>
+                                    </tr>
+                                </tbody>
+                        </table>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="table-responsive">
+            <table datatable [dtOptions]="dtOptions" class="table table-bordered table-striped row-border hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Documento</th>
+                        <th scope="col">IMC</th>
+                        <th scope="col">Peso</th>
+                        <th scope="col">Talla</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let test of tests">
+                        <td>{{test.nombres}}</td>
+                        <td>{{test.apellidos}}</td>
+                        <td>{{test.documento}}</td>
+                        <td>{{test.imc}}</td>
+                        <td>{{test.peso}}</td>
+                        <td>{{test.talla}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+       
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<app-footer></app-footer>
