@@ -75,6 +75,7 @@ export class SistemaComponent implements OnInit {
       <input type="number" id="peso" class="swal2-input" placeholder="peso">
       <input type="number" id="altura" class="swal2-input" placeholder="altura">`,
       cancelButtonText: `Cancelar`,
+      confirmButtonText: `Calcular`,
       showCancelButton: true,
       focusConfirm: false,
       preConfirm: () => {
