@@ -3,6 +3,18 @@
 <div class="container">
     <section>
         <button class="btn btn-primary" (click)="irAgregarAnuncios()" type="button">Agregar <i class="fas fa-plus-circle"></i></button>
+        <br><br>
+        <table class="table">
+            <div class="carta1">
+                <div class="row text-center">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Anuncios disponibles</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </table>
         <div *ngIf="!tablaanuncios">
             <div class="table-responsive">
                 <table datatable [dtOptions]="dtOptions" class="table table-bordered table-striped row-border hover">

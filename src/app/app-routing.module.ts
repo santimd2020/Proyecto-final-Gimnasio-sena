@@ -16,10 +16,14 @@ import { AgregaranuncioComponent } from './agregaranuncio/agregaranuncio.compone
 import { EditaranuncioComponent } from './editaranuncio/editaranuncio.component';
 import { RegistrousuarioComponent } from './registrousuario/registrousuario.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ActulizarusuarioComponent } from './actulizarusuario/actulizarusuario.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'perfil', component: PerfilComponent },
+  { path: 'actulizarusuario', component: ActulizarusuarioComponent },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'registrarusuario', component: RegistrousuarioComponent },
   { path: 'sistema', component: SistemaComponent },

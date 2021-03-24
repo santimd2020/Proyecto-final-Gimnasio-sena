@@ -82,7 +82,10 @@
                     <div class="col-md-2">
                         <div class="tipo">
                             <label class="form-label">ID ejercicio</label>
-                            <input type="number" class="form-control" formControlName="id_ejercicio">
+                            <select class="form-control" formControlName="id_ejercicio">
+                                <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio.id">{{ejercicio.nombre}}
+                                </option>
+                            </select>
                         </div>
                     </div>
 
@@ -131,9 +134,12 @@
 
 
                     <div class="col-md-2" *ngIf="ejercicio2">
-                        <div class="tipo">
+                       <div class="tipo">
                             <label class="form-label">ID ejercicio</label>
-                            <input type="number" class="form-control" formControlName="id_ejercicio">
+                            <select class="form-control" formControlName="id_ejercicio">
+                                <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio.id">{{ejercicio.nombre}}
+                                </option>
+                            </select>
                         </div>
                     </div>
 
@@ -183,7 +189,10 @@
                     <div class="col-md-2" *ngIf="ejercicio3">
                         <div class="tipo">
                             <label class="form-label">ID ejercicio</label>
-                            <input type="number" class="form-control" formControlName="id_ejercicio">
+                            <select class="form-control" formControlName="id_ejercicio">
+                                <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio.id">{{ejercicio.nombre}}
+                                </option>
+                            </select>
                         </div>
                     </div>
 
@@ -234,7 +243,10 @@
                     <div class="col-md-2" *ngIf="ejercicio4">
                         <div class="tipo">
                             <label class="form-label">ID ejercicio</label>
-                            <input type="number" class="form-control" formControlName="id_ejercicio">
+                            <select class="form-control" formControlName="id_ejercicio">
+                                <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio.id">{{ejercicio.nombre}}
+                                </option>
+                            </select>
                         </div>
                     </div>
 
@@ -285,7 +297,10 @@
                     <div class="col-md-2" *ngIf="ejercicio5">
                         <div class="tipo">
                             <label class="form-label">ID ejercicio</label>
-                            <input type="number" class="form-control" formControlName="id_ejercicio">
+                            <select class="form-control" formControlName="id_ejercicio">
+                                <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio.id">{{ejercicio.nombre}}
+                                </option>
+                            </select>
                         </div>
                     </div>
 
@@ -335,7 +350,10 @@
                     <div class="col-md-2" *ngIf="ejercicio6">
                         <div class="tipo">
                             <label class="form-label">ID ejercicio</label>
-                            <input type="number" class="form-control" formControlName="id_ejercicio">
+                            <select class="form-control" formControlName="id_ejercicio">
+                                <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio.id">{{ejercicio.nombre}}
+                                </option>
+                            </select>
                         </div>
                     </div>
 

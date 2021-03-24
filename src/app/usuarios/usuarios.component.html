@@ -34,17 +34,51 @@
                 </div>
             </div>
 
+
             <div class="col">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Consultar Ingresos</h5>
-                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            (click)="ConsultarEntrada()" type="button"><i class="fas fa-search"></i></button>
+                        <h5 class="card-title">Enviar sugerencias</h5>
+                        <button class="btn btn-primary" (click)="EnviarSugerencias()" type="button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Consulta ingreso - salida</h5>
+                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"(click)="ConsultarEntrada()" type="button"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </div>
 
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Descargar reporte Ingreso</h5>
+                        <button class="btn btn-success" (click)="DescargarReporte()" type="button"><i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Descargar reporte personas</h5>
+                        <button class="btn btn-success" (click)="DescargarReporteUsuarios()" type="button"><i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+            </div>
         </div>
+        
+        
+
         <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -55,100 +89,83 @@
                     </div>
                     <div class="modal-body">
 
-                        <table datatable [dtOptions]="dtOptions" class="table  table-bordered table-striped row-border hover">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Apellido</th>
-                                        <th scope="col">Edad</th>
-                                        <th scope="col">ID persona</th>
-                                        <th scope="col">Fecha</th>
-                                        <th scope="col">Ficha</th>
-                                        <th scope="col">Hora entrada</th>
-                                        <th scope="col">Hora salida</th>
-                                        <th scope="col">Jornada</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let ingresos of ingreso">
-                                        <td>{{ingresos.nombres}}</td>
-                                        <td>{{ingresos.apellidos}}</td>
-                                        <td>{{ingresos.edad}}</td>
-                                        <td>{{ingresos.documento}}</td>
-                                        <td>{{ingresos.fecha}}</td>
-                                        <td>{{ingresos.ficha}}</td>
-                                        <td>{{ingresos.horaentrada}}</td>
-                                        <td>{{ingresos.horasalida}}</td>
-                                        <td>{{ingresos.jornada}}</td>
-                                    </tr>
-                                </tbody>
-                        </table>
-    
+                        <div *ngIf="ingreso.length>0">
+                            <div class="table-responsive">
+                                <table datatable [dtOptions]="dtOptions" class="table table-bordered table-striped row-border hover">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Apellido</th>
+                                            <th scope="col">Edad</th>
+                                            <th scope="col">ID persona</th>
+                                            <th scope="col">Fecha</th>
+                                            <th scope="col">Ficha</th>
+                                            <th scope="col">Hora entrada</th>
+                                            <th scope="col">Hora salida</th>
+                                            <th scope="col">Jornada</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let ingreso of ingreso">
+                                            <td>{{ingreso.nombres}}</td>
+                                            <td>{{ingreso.apellidos}}</td>
+                                            <td>{{ingreso.edad}}</td>
+                                            <td>{{ingreso.documento}}</td>
+                                            <td>{{ingreso.fecha}}</td>
+                                            <td>{{ingreso.ficha}}</td>
+                                            <td>{{ingreso.horaentrada}}</td>
+                                            <td>{{ingreso.horasalida}}</td>
+                                            <td>{{ingreso.jornada}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
-
-
-        <div class="table-responsive">
-            <table datatable [dtOptions]="dtOptions" class="table table-bordered table-striped row-border hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellidos</th>
-                        <th scope="col">Documento</th>
-                        <th scope="col">IMC</th>
-                        <th scope="col">Peso</th>
-                        <th scope="col">Talla</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let test of tests">
-                        <td>{{test.nombres}}</td>
-                        <td>{{test.apellidos}}</td>
-                        <td>{{test.documento}}</td>
-                        <td>{{test.imc}}</td>
-                        <td>{{test.peso}}</td>
-                        <td>{{test.talla}}</td>
-                    </tr>
-                </tbody>
-            </table>
+<br>
+        <div *ngIf="user.length>0">
+            <div class="table-responsive">
+                <table datatable [dtOptions]="dtOptions" class="table table-bordered table-striped row-border hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">ID persona</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Ficha</th>
+                            <th scope="col">Programa</th>
+                            <th scope="col">Jornada</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Tipo persona</th>
+                            <th scope="col">Tipo usuario</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let users of user">
+                            <td>{{users.nombres}}</td>
+                            <td>{{users.apellidos}}</td>
+                            <td>{{users.edad}}</td>
+                            <td>{{users.documento}}</td>
+                            <td>{{users.fecha | date:'mediumDate'}}</td>
+                            <td>{{users.ficha}}</td>
+                            <td>{{users.programa}}</td>
+                            <td>{{users.jornada}}</td>
+                            <td>{{users.telefono}}</td>
+                            <td>{{users.tipopersona}}</td>
+                            <td>{{users.tipouser}}</td>
+                            <td><button type="button" class="btn btn-danger" (click)="EliminarUsuario(users.documento)"><i class="fas fa-trash"></i></button>
+                                <button type="button" class="btn btn-warning" style="margin: 8px"(click)="ActulizarUsuario(users.documento)"><i class="far fa-edit"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-       
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </section>
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <app-footer></app-footer>

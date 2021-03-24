@@ -10,28 +10,20 @@ import { SistemaService } from '../sistema.service/sistema.service';
 })
 export class NavComponent implements OnInit {
 
-
   anuncios: any = [];
   foto;
   titulos: any = [];
   texto: any = [];
 
-
   constructor(private route: Router,
     private sistema: SistemaService) { }
 
   ngOnInit(): void {
-
-
-
-
-
     this.sistema.getRequestAllAnuncios('https://gymsenajorge.herokuapp.com/consultarAnuncios', localStorage.getItem('token'))
       .subscribe(
         (data): any => {
 
           this.foto = data['anuncios']
-          console.log("fsdfsdfs", this.foto)
           for (const iterator of this.foto) {
             this.anuncios.push(iterator.imagen);
             this.titulos.push(iterator.titulo);
@@ -40,10 +32,6 @@ export class NavComponent implements OnInit {
               break;
             }
           }
-
-
-          console.log("fdsfsdfsd", this.anuncios)
-          console.log(data)
           //Se imprime el mensaje del serve y se le notifica al usuario.
           if (this.anuncios == null) {
             //Se hace una validacion, en donde si dietas queda vacio signifca que el token vencio y se debe renovar.
@@ -136,6 +124,32 @@ export class NavComponent implements OnInit {
     }, 1000);
 
   }
+  CerrarSession(){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Cerrando session',
+      showConfirmButton: false,
+      timer: 1000
+    })
+    setTimeout(() => {
+      this.route.navigate(['/']);
+    }, 1000);
+    localStorage.clear();
+  }
 
+
+  Verperfil(){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Cargando perfil',
+      showConfirmButton: false,
+      timer: 1000
+    })
+    setTimeout(() => {
+      this.route.navigate(['/perfil']);
+    }, 1000);
+  }
 
 }

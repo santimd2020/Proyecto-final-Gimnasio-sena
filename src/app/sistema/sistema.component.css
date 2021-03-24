@@ -2,6 +2,21 @@
     margin-left: 50%;
     margin-top: 110px;
 }
+.carta1{
+margin-top: -30px;
+margin-bottom: -110px;
+margin-left: -65px;
+margin-right: 15px;
+left: 10px;
+text-align: center;
+border: none;
+}
+
+h5{
+text-align: center;
+color: orange;
+}
+        
 .card-body{
     margin: auto;
     text-align: center;

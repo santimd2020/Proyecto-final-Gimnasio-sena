@@ -80,4 +80,13 @@ export class RutinasService {
     }
     return this.http.get(route, config);
   }
+
+  getReporteAllEjercicios(route: string, token?: string) {
+    let config: any = { responseType: 'json' }
+    if (token) {
+      const header = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      config["headers"] = header;
+    }
+    return this.http.get(route, config);
+  }
 }

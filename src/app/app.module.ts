@@ -25,6 +25,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EditaranuncioComponent } from './editaranuncio/editaranuncio.component';
 import { RegistrousuarioComponent } from './registrousuario/registrousuario.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ActulizarusuarioComponent } from './actulizarusuario/actulizarusuario.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 
@@ -49,7 +51,9 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     AgregaranuncioComponent,
     EditaranuncioComponent,
     RegistrousuarioComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    ActulizarusuarioComponent,
+    PerfilComponent
 
   ],
   imports: [

@@ -27,9 +27,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    console.log("entro login")
     localStorage.clear();
-    console.log(this.form.value.correo);
-    console.log(this.form.value.contrasena);
     this.load = false;
     this.client.postRequest('https://gymsenajorge.herokuapp.com/login', {
       correo: this.form.value.correo,
@@ -39,21 +38,22 @@ export class LoginComponent implements OnInit {
         (response: any) => {
           console.log(response);
           localStorage.setItem('token', response.token)
-          console.log(localStorage.getItem('token'));
           this.route.navigate(['/sistema']);
-        }),
+        },
+      
 
       (error) => {
         console.log(error);
         Swal.fire({
           position: 'center',
           icon: 'error',
-          title: 'Valide que los datos sean correctos',
+          title: 'Verifique los datos ingresados',
           showConfirmButton: false,
           timer: 2500
         })
+        this.load = true;
         this.route.navigate(['/']);
-      };
+      });
 
   }
 }

@@ -13,9 +13,9 @@ export class RegistrousuarioComponent implements OnInit {
   form: FormGroup;
   load: boolean = true;
   registro: boolean = false;
-  idprogramas: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  jornada: any = ['mixta', 'diurna', 'nocturna', 'no aplica']
-  tipouser: any = ['Usuario', 'Administrador']
+  idprogramas: any = []
+  jornada: any = ['mixta', 'diurna', 'nocturna']
+  tipouser: any = ['Usuario', 'Admin']
   tipopersona: any = ['Aprendiz', 'Funcionario']
 
 
@@ -38,6 +38,7 @@ export class RegistrousuarioComponent implements OnInit {
       tipouser: ['', [Validators.required]],
       correo: ['', [Validators.email, Validators.maxLength(50), Validators.required]],
     });
+    this.programas();
   }
 
 
@@ -83,11 +84,11 @@ export class RegistrousuarioComponent implements OnInit {
           Swal.fire({
             icon: 'success',
             title: 'Exito',
-            text: 'Se registro el ejercicio',
+            text: 'Se registro el usuario',
           })
           this.registro = false;
           //Se redireciona a la pagina principal de dietas
-          this.route.navigate(['/sistema']);
+          this.route.navigate(['/usuarios']);
         },
         (error) => {
           //En caso de error se imprime el mensaje del serve y se notifica al usuario
@@ -114,4 +115,27 @@ export class RegistrousuarioComponent implements OnInit {
       this.registro = false;
     }
   }
+
+
+  programas() {
+    this.usuarios.getRequestAllProgramas('https://gymsenapinzon.herokuapp.com/programas', localStorage.getItem('token'))
+      .subscribe(
+        (data): any => {
+          //Se guarda los datos que trae el json del serve, ala propiedad dietas.
+          this.idprogramas = data['consulta']
+          console.log("guzman",data['consulta']);
+          console.log(this.idprogramas);
+          //Se imprime el mensaje del serve y se le notifica al usuario.
+        },
+        error => { console.log(error) })
+  }
+
+
+
+
+
+
+
+
+
 }

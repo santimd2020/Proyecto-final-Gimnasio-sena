@@ -1,0 +1,45 @@
+<app-nav></app-nav>
+<link rel="stylesheet" type="text/css" href="../perfil/perfil.component.css">
+<div class="container">
+    <section>
+
+        <table class="table">
+            <div class="carta">
+                <div class="row text-center">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Perfil Usuario</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </table>
+
+        <div class="formulario" *ngFor="let usuarios of usuario">
+
+
+            <div class="card" style="width: 18rem;">
+                <img src="{{usuarios.imagen}}" alt=""width="200" height="100px" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{usuarios.nombres}} {{usuarios.apellidos}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Correo:{{usuarios.correo}}</li>
+                  <li class="list-group-item">Edad:{{usuarios.edad}}</li>
+                  <li class="list-group-item">telefono:{{usuarios.telefono}}</li>
+                </ul>
+              </div>
+        </div>
+
+
+
+
+
+        <div *ngIf="!load" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </section>
+
+</div>
+
+<app-footer></app-footer>

@@ -29,3 +29,8 @@
   .modal .modal-body {
     overflow-y: auto;
   }
+
+h5{
+text-align: center;
+color: orange;
+}
