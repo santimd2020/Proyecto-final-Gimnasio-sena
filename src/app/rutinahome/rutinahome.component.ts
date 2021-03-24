@@ -72,17 +72,7 @@ export class RutinahomeComponent implements OnInit {
 
   editarRutinaPorId(id) {
     localStorage.setItem('id', id)
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      showConfirmButton: false,
-      title: 'Cargando',
-      timer: 2000
-    })
-    localStorage.setItem('id', id)
-    setTimeout(() => {
       this.route.navigate(['/editarrutina']);
-    }, 2000);
   }
 
   eliminarRutinaPorId(id) {

@@ -95,34 +95,16 @@ export class AnunciosComponent implements OnInit {
   editarAnunciosPorId(id) {
     console.log("entro")
     console.log(id)
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      showConfirmButton: false,
-      title: 'Cargando',
-      timer: 2000
-    })
     //Se guarda el parametro id en el localStorage para pasarlo para la consulta de ejercicio por id
     localStorage.setItem('id', id)
-    setTimeout(() => {
       //Se navega a la ruta de editar ejercicios
       this.route.navigate(['/editaranuncio']);
-    }, 2000);
+   
 
   }
 
   irAgregarAnuncios() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Validando formulario',
-      showConfirmButton: false,
-      timer: 2000
-    })
-    setTimeout(() => {
       //Se redireciona a la pagina de aregagar ejercicios
       this.route.navigate(['/agregaranuncios']);
-    }, 2000);
-
   }
 }

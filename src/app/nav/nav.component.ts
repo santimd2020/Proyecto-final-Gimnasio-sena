@@ -51,78 +51,24 @@ export class NavComponent implements OnInit {
 
   }
 
-  irInicio() {
-    Swal.fire({
-      position: 'center',
-      icon: 'info',
-      title: 'Pagina en construccion',
-      footer: 'Disculpe las molestias',
-      showConfirmButton: false,
-      timer: 2000
-    })
-
-  }
-
   irIngresar() {
     this.route.navigate(['/usuarios']);
   }
 
   irSistema() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Cargando',
-      showConfirmButton: false,
-      timer: 2000
-    })
-    setTimeout(() => {
       this.route.navigate(['/sistema']);
-    }, 1000);
-
-
   }
   irRutinahome() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Cargando',
-      showConfirmButton: false,
-      timer: 1000
-    })
-    setTimeout(() => {
       this.route.navigate(['/rutinas']);
-    }, 1000);
-
   }
 
 
   irEjercicioshome() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Cargando',
-      showConfirmButton: false,
-      timer: 1000
-    })
-    setTimeout(() => {
       this.route.navigate(['/ejercicios']);
-    }, 1000);
-
-
   }
 
   irDietashome() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Cargando',
-      showConfirmButton: false,
-      timer: 1000
-    })
-    setTimeout(() => {
       this.route.navigate(['/dietas']);
-    }, 1000);
-
   }
   CerrarSession(){
     Swal.fire({

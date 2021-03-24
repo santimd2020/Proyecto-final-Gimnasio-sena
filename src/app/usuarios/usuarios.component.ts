@@ -54,16 +54,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   RegistrarUsuario() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      showConfirmButton: false,
-      title: 'Cargando',
-      timer: 2000
-    })
-    setTimeout(() => {
       this.route.navigate(['/registrarusuario']);
-    }, 2000);
   }
 
   RegistrarEntrada() {
@@ -239,17 +230,8 @@ export class UsuariosComponent implements OnInit {
 
   ActulizarUsuario(id) {
     localStorage.setItem('id', id)
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      showConfirmButton: false,
-      title: 'Cargando',
-      timer: 2000
-    })
-    setTimeout(() => {
       //Se navega a la ruta de editar dieta
       this.route.navigate(['/actulizarusuario']);
-    }, 2000);
   }
 
 

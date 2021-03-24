@@ -78,17 +78,8 @@ export class DietashomeComponent implements OnInit {
   editarDietaPorId(id) {
     //Se guarda el parmetro que tiene el metodo id en el localStorage.
     localStorage.setItem('id', id)
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      showConfirmButton: false,
-      title: 'Cargando',
-      timer: 2000
-    })
-    setTimeout(() => {
       //Se navega a la ruta de editar dieta
       this.route.navigate(['/editardieta']);
-    }, 2000);
   }
 
 
