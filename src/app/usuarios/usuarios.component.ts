@@ -71,7 +71,7 @@ export class UsuariosComponent implements OnInit {
       title: "Identificacion del usuario",
       input: "text",
       showCancelButton: true,
-      confirmButtonText: "Asociar",
+      confirmButtonText: "registrar",
       cancelButtonText: "Cancelar",
     })
       .then(resultado => {
@@ -122,7 +122,7 @@ export class UsuariosComponent implements OnInit {
       title: "Identificacion del usuario",
       input: "text",
       showCancelButton: true,
-      confirmButtonText: "Asociar",
+      confirmButtonText: "Registrar",
       cancelButtonText: "Cancelar",
     })
       .then(resultado => {

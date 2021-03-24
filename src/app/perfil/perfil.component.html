@@ -16,8 +16,6 @@
         </table>
 
         <div class="formulario" *ngFor="let usuarios of usuario">
-
-
             <div class="card" style="width: 18rem;">
                 <img src="{{usuarios.imagen}}" alt=""width="200" height="100px" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -30,9 +28,6 @@
                 </ul>
               </div>
         </div>
-
-
-
 
 
         <div *ngIf="!load" class="spinner-border" role="status">
