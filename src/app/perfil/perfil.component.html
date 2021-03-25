@@ -12,11 +12,15 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <button type="submit" style="margin: 8px;" class="btn btn-primary">Actualizar <i
-                                class="far fa-save"></i></button>
-                        <button type="submit" class="btn btn-success">Rutina <i class="fas fa-dumbbell"></i></button>
+                            <div *ngFor="let rutinas of rutinas" >
+                                <button type="submit" style="margin: 8px;" (click)="actulizar()" class="btn btn-primary">Actualizar <i class="far fa-save"></i></button>
+                                <button type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="ejercicio(rutinas.ejercicios)" class="btn btn-success">Rutina <i class="fas fa-dumbbell"></i></button>
+                            </div>
+                       
                     </li>
-                    <li class="list-group-item"> <button type="submit" (click)="cambiarcontrasena()" style="margin: auto;width:fit-content;" class="btn btn-warning">Cambiar contraseña <i class="fas fa-key"></i></button></li>
+                    <li class="list-group-item"> <button type="submit" (click)="cambiarcontrasena()"
+                            style="margin: auto;width:fit-content;" class="btn btn-warning">Cambiar contraseña <i
+                                class="fas fa-key"></i></button></li>
                     <li class="list-group-item">Correo: {{usuarios.correo}}</li>
                     <li class="list-group-item">Edad: {{usuarios.edad}}</li>
                     <li class="list-group-item">Telefono: {{usuarios.telefono}}</li>
@@ -28,6 +32,94 @@
         <div *ngIf="!load" class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>
         </div>
+
+
+        <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tu rutina asignada</h5>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                            aria-label="Exit">Cerrar</button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="row g-3-" [formGroup]="form">
+
+                            <div class="col-md-3">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" formControlName="nombre">
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <div class="tipo">
+                                    <label class="form-label">Intensidad</label>
+                                    <input type="text" class="form-control" formControlName="intensidad">
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <label class="form-label">Categoria</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" formControlName="categoria">
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-2">
+                                <label class="form-label">Dificultad</label>
+                                <div class="input-group mb-10">
+                                    <input type="text" class="form-control" formControlName="dificultad">
+                                </div>
+                            </div>
+
+                            <div class="col-md-11">
+                                <div class="descripcion">
+                                    <label class="form-label">Descripcion</label>
+                                    <input type="text" class="form-control" formControlName="descripcion">
+                                </div>
+                            </div>
+
+                        </form>
+                        <br>
+                        <table class="table">
+                            <div class="tabla">
+                                <table class="table table-bordered">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Descripcion</th>
+                                            <th scope="col">Dia</th>
+                                            <th scope="col">Ejecucion</th>
+                                            <th scope="col">Imagen</th>
+                                            <th scope="col">Repeticiones</th>
+                                            <th scope="col">Series</th>
+                                            <th scope="col">Tipo</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="let ejercicios of ejercicios" >
+                                        <tr>
+                                            <td>{{ejercicios.nombre}}</td>
+                                            <td>{{ejercicios.descripcion}}</td>
+                                            <td>{{ejercicios.dia}}</td>
+                                            <td>{{ejercicios.ejecucion}}</td>
+                                            <td><a href={{ejercicios.imagen}} target="_blank"><img src="{{ejercicios.imagen}}" alt="" width="200" height="100px"></a></td>
+                                            <td>{{ejercicios.repeticiones}}</td>
+                                            <td>{{ejercicios.series}}</td>
+                                            <td>{{ejercicios.tipo}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </section>
 
 </div>

@@ -42,11 +42,23 @@ export class LoginComponent implements OnInit {
           this.auth.setCurrentUser(response.nombre)
           this.auth.login(response.token, response.user)
           console.log(this.auth.isAdmin())
-          if (this.auth.admin.value==true) {
+          if (this.auth.admin.value == true) {
             this.route.navigate(['/sistema']);
           } else {
             this.route.navigate(['/perfil']);
           }
+          setTimeout(() => {
+            this.auth.logout()
+            Swal.fire({
+              position: 'center',
+              icon: 'warning',
+              title: 'Su sesion expiro',
+              showConfirmButton: false,
+              timer: 2500
+            })
+            this.route.navigate(['/']);
+          }, 1800000);
+
         },
         (error) => {
           console.log(error);

@@ -17,6 +17,7 @@ import { EditaranuncioComponent } from './editaranuncio/editaranuncio.component'
 import { RegistrousuarioComponent } from './registrousuario/registrousuario.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ActulizarusuarioComponent } from './actulizarusuario/actulizarusuario.component';
+import { ActualizarperfilComponent } from './actualizarperfil/actualizarperfil.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { GuardiaService } from './guardia.service';
 
@@ -24,6 +25,7 @@ import { GuardiaService } from './guardia.service';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'perfil', component: PerfilComponent, canActivate: [GuardiaService] },
+  { path: 'actulizarperfil', component: ActualizarperfilComponent, canActivate: [GuardiaService] },
   { path: 'actulizarusuario', component: ActulizarusuarioComponent, canActivate: [GuardiaService] },
   { path: 'usuarios', component: UsuariosComponent, canActivate: [GuardiaService] },
   { path: 'registrarusuario', component: RegistrousuarioComponent, canActivate: [GuardiaService] },

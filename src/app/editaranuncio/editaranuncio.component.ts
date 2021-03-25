@@ -141,7 +141,7 @@ export class EditaranuncioComponent implements OnInit {
           Swal.fire({
             icon: 'success',
             title: 'Exito',
-            text: 'Se registro el anuncio',
+            text: 'Se actualizo el anuncio',
           })
           this.load = true;
           this.registro = false;
@@ -154,7 +154,7 @@ export class EditaranuncioComponent implements OnInit {
           Swal.fire({
             icon: 'error',
             title: '¡Atencion!',
-            text: 'No fue posible registrar el anuncio',
+            text: 'No fue posible actualizar el anuncio',
             footer: 'Verifique que el nombre no este registrado'
           })
           this.load = true;

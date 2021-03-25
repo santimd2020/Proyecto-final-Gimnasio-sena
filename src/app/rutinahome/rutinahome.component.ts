@@ -72,7 +72,7 @@ export class RutinahomeComponent implements OnInit {
 
   editarRutinaPorId(id) {
     localStorage.setItem('id', id)
-      this.route.navigate(['/editarrutina']);
+    this.route.navigate(['/editarrutina']);
   }
 
   eliminarRutinaPorId(id) {
@@ -120,7 +120,7 @@ export class RutinahomeComponent implements OnInit {
   }
 
   irAgregarRutina() {
-      this.route.navigate(['/agregarrutinas']);
+    this.route.navigate(['/agregarrutinas']);
   }
 
   GenerarReporte() {

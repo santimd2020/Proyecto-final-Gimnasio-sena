@@ -101,7 +101,7 @@ export class RegistrousuarioComponent implements OnInit {
             icon: 'error',
             title: '¡Atencion!',
             text: 'No fue posible registrar la persona',
-            footer: 'Verifique que el id no este registrado'
+            footer: 'Verifique que el correo o el documento, no este registrado'
           })
           this.load = true;
           this.registro = false;

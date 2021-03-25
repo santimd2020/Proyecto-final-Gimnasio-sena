@@ -176,6 +176,10 @@
                 </table>
             </div>
         </div>
+
+        <div *ngIf="!load" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
     </section>
 </div>
 <app-footer></app-footer>

@@ -3,7 +3,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuariosService } from '../usuario.service/usuarios.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { RutinasService } from '../rutinas.service/rutinas.service';
 
 @Component({
   selector: 'app-perfil',
@@ -12,6 +12,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class PerfilComponent implements OnInit {
 
+  dtOptions: DataTables.Settings = {};
   previsualizacion: string;
   form: FormGroup;
   registro: boolean = false;
@@ -20,14 +21,33 @@ export class PerfilComponent implements OnInit {
   numeroid;
   usuario: any[] = [];
   imagen: any;
-
+  tablarutinas = true;
+  rutinas;
+  ejercicios: any;
 
   constructor(
     private fb: FormBuilder,
     private usuarios: UsuariosService,
-    private route: Router) { }
+    private route: Router,
+    private rutina: RutinasService,) { }
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      nombre: ['', Validators.required],
+      id: ['', Validators.required],
+      intensidad: ['', Validators.required],
+      categoria: ['', Validators.required],
+      dificultad: ['', Validators.required],
+      descripcion: ['', Validators.required],
+    });
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      language: {
+        url: "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+      }
+    };
+    this.load = false;
     this.usuarios.getRequestIdUsuario('https://gymsenapinzon.herokuapp.com/perfil', localStorage.getItem('token'))
       .subscribe(
         (data): any => {
@@ -37,10 +57,46 @@ export class PerfilComponent implements OnInit {
           console.log("aaaa", this.usuario)
         },
       );
+
+    this.rutina.getRequestAllRutinas('https://gymsenapinzon.herokuapp.com/consultarRutina', localStorage.getItem('token'))
+      .subscribe(
+        (data): any => {
+          console.log("asdsdf",data['ejercicios'][0])
+          this.rutinas = data['ejercicios']
+
+this.ejercicios=data['ejercicios'][0]
+
+
+          this.load = true;
+          this.tablarutinas = false
+          this.form.get('nombre').setValue(this.rutinas[0]['nombre']);
+          this.form.get('intensidad').setValue(this.rutinas[0]['intensidad']);
+          this.form.get('categoria').setValue(this.rutinas[0]['categoria']);
+          this.form.get('dificultad').setValue(this.rutinas[0]['dificultad']);
+          this.form.get('descripcion').setValue(this.rutinas[0]['descripcion']);
+          if (this.rutinas == null) {
+            Swal.fire({
+              position: 'center',
+              icon: 'warning',
+              showConfirmButton: false,
+              title: 'Session Expirada',
+              timer: 2000
+            })
+            localStorage.clear()
+            setTimeout(() => {
+              this.route.navigate(['/']);
+            }, 2000);
+          }
+        },
+        error => { console.log(error); })
   }
 
-  editar() {
+  ejercicio(id) {
+    this.ejercicios = id;
+  }
 
+  actulizar() {
+    this.route.navigate(['/actulizarperfil']);
   }
 
   cambiarcontrasena() {
@@ -92,6 +148,7 @@ export class PerfilComponent implements OnInit {
             )
         }
       });
-
   }
+
+
 }

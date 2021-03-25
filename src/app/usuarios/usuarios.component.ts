@@ -14,6 +14,7 @@ export class UsuariosComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   ingreso: any[] = [];
   user: any[] = [];
+  load: boolean = true;
 
   constructor(
     public auth: AutentiService,
@@ -21,6 +22,7 @@ export class UsuariosComponent implements OnInit {
     private usuarios: UsuariosService) { }
 
   ngOnInit(): void {
+    this.load= false;
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
@@ -31,6 +33,7 @@ export class UsuariosComponent implements OnInit {
       this.usuarios.getRequestAllUsuarios('https://gymsenapinzon.herokuapp.com/consultaUsuarios', localStorage.getItem('token'))
         .subscribe(
           (data): any => {
+            this.load = true;
             //Se guarda los datos que trae el json del serve, ala propiedad dietas.
             this.user = data['consulta']
             console.log(data)

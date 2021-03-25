@@ -22,3 +22,26 @@ text-align: center;
 .list-group-item{
     text-align: center;
 }
+
+.spinner-border {
+margin-left: 50%;
+margin-top: 150px;
+}
+
+.modal {
+    padding: 0 !important;
+  }
+  .modal .modal-dialog {
+    width: 95%;
+    max-width: none;
+    height: 95%;
+    margin: 5;
+  }
+  .modal .modal-content {
+    height: 95%;
+    border: 0;
+    border-radius: 0;
+  }
+  .modal .modal-body {
+    overflow-y: auto;
+  }

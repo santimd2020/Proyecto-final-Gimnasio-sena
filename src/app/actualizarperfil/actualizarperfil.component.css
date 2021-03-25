@@ -2,27 +2,26 @@
 margin-left: 48%;
 margin-top: 50px;
 }
+
 h5{
 color:  rgb(255, 123, 0);
 }
-
-
+        
 .carta{
 margin-top: -30px;
 margin-bottom: -110px;
-margin-left: -40px;
+margin-left: -65px;
 margin-right: 15px;
 left: 10px;
 text-align: center;
 border: none;
 }
-        
+            
 .tabla{
 text-align: center;
 }
-
+    
 input::-webkit-inner-spin-button {  
 -webkit-appearance: none;
 margin: 0;
-}
-    
+}   

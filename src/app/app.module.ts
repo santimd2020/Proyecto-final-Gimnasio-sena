@@ -27,6 +27,7 @@ import { RegistrousuarioComponent } from './registrousuario/registrousuario.comp
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ActulizarusuarioComponent } from './actulizarusuario/actulizarusuario.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { ActualizarperfilComponent } from './actualizarperfil/actualizarperfil.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     UsuariosComponent,
     ActulizarusuarioComponent,
     PerfilComponent,
+    ActualizarperfilComponent,
 
   ],
   imports: [
