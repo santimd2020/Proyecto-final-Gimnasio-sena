@@ -4,6 +4,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RutinasService } from '../rutinas.service/rutinas.service';
 import * as FileSaver from 'file-saver';
+import { AutentiService } from '../autenti.service'
 
 @Component({
   selector: 'app-rutinahome',
@@ -27,7 +28,8 @@ export class RutinahomeComponent implements OnInit {
   constructor(
     private route: Router,
     private rutina: RutinasService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    public auth: AutentiService) { }
 
   ngOnInit(): void {
 

@@ -17,7 +17,7 @@
             </div>
         </table>
 
-        <button class="btn btn-primary" (click)="irAgregarEjercicios()" type="button">Agregar <i class="fas fa-plus-circle"></i></button>
+        <button *ngIf="auth.isAdmin()|async" class="btn btn-primary" (click)="irAgregarEjercicios()" type="button">Agregar <i class="fas fa-plus-circle"></i></button>
         
         <div *ngIf="!tablaejercicios">
             <div class="table-responsive">
@@ -28,7 +28,7 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripcion</th>
                             <th scope="col">Imagen</th>
-                            <th scope="col">Acciones</th>
+                            <th scope="col" *ngIf="auth.isAdmin()|async" scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody >
@@ -37,7 +37,7 @@
                             <td>{{ejercicio.nombre}}</td>
                             <td>{{ejercicio.descripcion}}</td>
                             <td> <a href={{ejercicio.imagen}} target="_blank"><img src="{{ejercicio.imagen}}" alt=""width="200" height="100px"></a></td>
-                            <td> <button class="btn btn-danger" style="margin: 8px" (click)="eliminarEjerciciosPorId(ejercicio.id)"type="button"><i class="fas fa-trash"></i></button>
+                            <td *ngIf="auth.isAdmin()|async"> <button class="btn btn-danger" style="margin: 8px" (click)="eliminarEjerciciosPorId(ejercicio.id)"type="button"><i class="fas fa-trash"></i></button>
                                 <button class="btn btn-warning" (click)="editarEjerciciosPorId(ejercicio.id)"type="button"><i class="far fa-edit"></i></button>
                             </td>
 

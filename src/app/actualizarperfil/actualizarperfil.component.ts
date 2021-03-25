@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuariosService } from '../usuario.service/usuarios.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { AutentiService } from '../autenti.service'
 
 
 @Component({
@@ -26,7 +27,8 @@ export class ActualizarperfilComponent implements OnInit {
     private fb: FormBuilder,
     private usuarios: UsuariosService,
     private route: Router,
-    private sanitizer: DomSanitizer) { }
+    private sanitizer: DomSanitizer,
+    public auth: AutentiService) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -120,7 +122,8 @@ export class ActualizarperfilComponent implements OnInit {
         //Si el formulario es valido, se llama servicio y envia se apunta directamente al serve.
         this.usuarios.editarusuario('https://gymsenapinzon.herokuapp.com/actualizar', formularioDeDatos, localStorage.getItem('token'))
         .subscribe(
-          (response): any => {
+          (response: any) => {
+            this.auth.setCureenImage(response.imagen);
             //Se imprime la respuesta del serve y se muestra un mensaje de notificacion al usuario
             console.log(response);
             Swal.fire({
@@ -129,6 +132,7 @@ export class ActualizarperfilComponent implements OnInit {
               timer: 1000,
               text: 'Se actualizaron los datos',
             })
+           
             this.load = true;
             this.registro = false;
             this.route.navigate(['/perfil']);

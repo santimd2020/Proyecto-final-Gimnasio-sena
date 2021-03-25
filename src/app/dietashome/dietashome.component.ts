@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { data } from 'jquery';
+import { AutentiService } from '../autenti.service'
 //Se hacen las importaciones necesarias
 
 @Component({
@@ -29,7 +30,8 @@ export class DietashomeComponent implements OnInit {
   constructor(
     private dieta: DietasService,
     private route: Router,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    public auth: AutentiService) { }
 
 
   ngOnInit(): void {

@@ -17,10 +17,8 @@
                 </div>
             </div>
         </table>
-        <button class="btn btn-primary" (click)="irAgregarDieta()" type="button">Agregar <i
-                class="fas fa-plus-circle"></i></button>
-        <button style="margin: 8px" class="btn btn-success" (click)="GenerarReporte()" type="button">Descargar <i
-                class="fas fa-file-download"></i></button>
+        <button *ngIf="auth.isAdmin()|async" class="btn btn-primary" (click)="irAgregarDieta()" type="button">Agregar <i class="fas fa-plus-circle"></i></button>
+        <button *ngIf="auth.isAdmin()|async" style="margin: 8px" class="btn btn-success" (click)="GenerarReporte()" type="button">Descargar <i class="fas fa-file-download"></i></button>
 
 
         <div *ngIf="!tabladietas">
@@ -31,7 +29,7 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Categoria</th>
                             <th scope="col">Descripcion</th>
-                            <th scope="col">Acciones</th>
+                            <th *ngIf="auth.isAdmin()|async" scope="col" >Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,7 +37,7 @@
                             <td>{{dieta.nombre}}</td>
                             <td>{{dieta.categoria}}</td>
                             <td>{{dieta.descripcion}}</td>
-                            <td><button type="button" class="btn btn-danger" (click)="eliminarDietaPorId(dieta.id)"><i class="fas fa-trash"></i></button>
+                            <td *ngIf="auth.isAdmin()|async"><button type="button" class="btn btn-danger" (click)="eliminarDietaPorId(dieta.id)"><i class="fas fa-trash"></i></button>
                                 <button type="button" class="btn btn-warning" style="margin: 8px"(click)="editarDietaPorId(dieta.id)"><i class="far fa-edit"></i></button>
                                 <button class="btn btn-primary" (click)="asignarDietaPorId(dieta.id)" type="button"><i class="fas fa-user"></i></button>
                             </td>

@@ -63,8 +63,7 @@
   <div class="table">
     <table class="table">
       <div class="d-flex flex-row-reverse bd-highlight">
-        <div class="p-2 bd-highlight"><img class="img-fluid" alt="Responsive image" src="../static/images/persona.png"
-            style="width: 110px; height: 110px;"></div>
+        <div class="p-2 bd-highlight"><a href={{auth.getCurrentImagen()}} target="_blank"><img src="{{auth.getCurrentImagen()}}" alt=""width="200" height="200px"></a></div>
         <div class="p-2 bd-highlight">
           <h2>{{auth.getCurrentUser()}}</h2>
           <button class="btn btn-primary" (click)="CerrarSession()" type="button">Cerrar Sesion <i

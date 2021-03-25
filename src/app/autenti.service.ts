@@ -14,15 +14,16 @@ export class AutentiService {
 
   constructor() { }
 
-  login(token: string, usuario: string): void {
-    console.log(usuario)
+  tipopersona(usuario: string): void {
+    localStorage.setItem('usuario', usuario);
+  }
+
+  login(token: string): void {
     localStorage.setItem('token', token)
-    if (usuario == 'usuario') {
-      this.user.next(true);
-      this.admin.next(false);
+    if (localStorage.getItem('usuario') == 'usuario') {
+      this.isUser();
     } else {
-      this.admin.next(true);
-      this.user.next(false);
+      this.isAdmin();
     }
     this.islogin.next(true);
   }
@@ -38,6 +39,16 @@ export class AutentiService {
     localStorage.setItem('user', user);
   }
 
+  setCureenImage(imagen:string):void{
+    localStorage.setItem('imagen',imagen);
+
+  }
+
+  getCurrentImagen(): string {
+    return localStorage.getItem('imagen')
+  }
+
+
   getCurrentUser(): string {
     return localStorage.getItem('user')
   }
@@ -47,11 +58,18 @@ export class AutentiService {
   }
 
   isUser(): Observable<boolean> {
+    if (localStorage.getItem('usuario') == 'usuario') {
+      this.user.next(true);
+      this.admin.next(false);
+    }
     return this.user.asObservable();
+
   }
   isAdmin(): Observable<boolean> {
-
+    if (localStorage.getItem('usuario') == 'admin') {
+      this.user.next(false);
+      this.admin.next(true);
+    }
     return this.admin.asObservable();
   }
-
 }

@@ -3,6 +3,7 @@ import { ConsultaejerciciosService } from '../Consultaejercicios.service/consult
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { Router } from '@angular/router';
+import { AutentiService } from '../autenti.service'
 //Se realizan las importaciones necesarias
 
 @Component({
@@ -35,7 +36,8 @@ export class ConsultaejerciciosComponent implements OnInit {
 
     public client: ConsultaejerciciosService,
     private fb: FormBuilder,
-    private route: Router
+    private route: Router,
+    public auth: AutentiService
 
   ) { }
 

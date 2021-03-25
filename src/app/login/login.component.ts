@@ -40,7 +40,9 @@ export class LoginComponent implements OnInit {
         (response: any) => {
           console.log(response);
           this.auth.setCurrentUser(response.nombre)
-          this.auth.login(response.token, response.user)
+          this.auth.login(response.token)
+          this.auth.tipopersona(response.user);
+          this.auth.setCureenImage(response.imagen);
           console.log(this.auth.isAdmin())
           if (this.auth.admin.value == true) {
             this.route.navigate(['/sistema']);
