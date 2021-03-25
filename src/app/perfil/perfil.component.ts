@@ -25,8 +25,7 @@ export class PerfilComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private usuarios: UsuariosService,
-    private route: Router,
-    private sanitizer: DomSanitizer) { }
+    private route: Router) { }
 
   ngOnInit(): void {
     this.usuarios.getRequestIdUsuario('https://gymsenapinzon.herokuapp.com/perfil', localStorage.getItem('token'))
@@ -40,4 +39,59 @@ export class PerfilComponent implements OnInit {
       );
   }
 
+  editar() {
+
+  }
+
+  cambiarcontrasena() {
+    Swal.fire({
+      title: "Introduzca la nueva contraseña",
+      input: "text",
+      showCancelButton: true,
+      confirmButtonText: "Cambiar",
+      cancelButtonText: "Cancelar",
+    })
+      .then(resultado => {
+        if (resultado.value) {
+          console.log(resultado.value);
+          this.usuarios.cambiarpassword('https://gymsenapinzon.herokuapp.com/cambiarPassword', {
+            password: resultado.value,
+          }, localStorage.getItem('token'))
+            .subscribe(
+              (data): any => {
+                console.log(data);
+                if (data) {
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Se actualizo correctamente',
+                    timer: 1000
+                  })
+                } else {
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'warnig',
+                    title: 'Se sesion expirada',
+                    timer: 1000
+                  })
+                  setTimeout(() => {
+                    this.route.navigate(['/']);
+                  }, 1000);
+                }
+
+              },
+              (error) => {
+                console.log(error);
+                Swal.fire({
+                  icon: 'error',
+                  title: '¡Atencion!',
+                  text: 'Error al cambiar',
+                  footer: 'Verifique que sea valida',
+                })
+              }
+            )
+        }
+      });
+
+  }
 }

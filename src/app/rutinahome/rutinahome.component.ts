@@ -120,18 +120,7 @@ export class RutinahomeComponent implements OnInit {
   }
 
   irAgregarRutina() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Validando formulario',
-      showConfirmButton: false,
-      timer: 2000
-    })
-    setTimeout(() => {
       this.route.navigate(['/agregarrutinas']);
-    }, 2000);
-
-
   }
 
   GenerarReporte() {

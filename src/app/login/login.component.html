@@ -51,19 +51,63 @@
 
 <div class="container">
     <section>
-        <form class="row g-3-" [formGroup]="form">
 
+        <div class="container">
+            <section>
+                <h1 style="color: rgb(255, 123, 0); text-align: center;">Gym Sena<br><br></h1>
+                <div class="row">
 
-            <div class="table-responsive">
-                <table class="table">
-                    <div class="login">
-                        <div class="card text-center">
-                            <div class="card-header">
-                                Login
-                            </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+                        <p class="list-unstyled">
+                            El entrenamiento personalizado es ideal para aquellos
+                            que quieren ver cambios rápidos y efectivos
+                            Beneficios del entrenamiento personalizado: </p>
+                        <ul>
+                            <li>Mejora tu imagen personal </li>
+                            <li>Incrementa tu flexibilidad y fuerza </li>
+                            <li>Aumenta tu masa muscular</li>
+                        </ul>
 
+                    </div>
+                    <img class="img-fluid col-sm-4 mx-auto" src="../static/images/Logo.jpeg"><br>
+                </div>
+            </section><br>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+                    <p style="color: rgb(255, 80, 0);">SI YA ESTAS REGISTRADO DA CLIC EN INGRESAR</p>
+                </div>
+
+                <div class="  col-md-4 mx-auto">
+                    <div class="d-flex flex-row bd-highlight mb-3 justify-content-around">
+                        <div class="btn-group">
+                            <button class="btn btn-primary me-md-2" type="submit" data-toggle="modal"
+                                data-target="#exampleModalCenter">Ingresar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 mx-auto">
+                    <p><strong>Dirección SENA Centro Comercio y Turismo:</strong><br> Cra. 18 # 4-2, Armenia - Quindío
+                    </p>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3-" [formGroup]="form">
                             <div class="card-body">
-
                                 <div class="from-group">
                                     <label for="">Correo</label>
                                     <input type="text" required class="form-control" formControlName="correo">
@@ -72,14 +116,16 @@
                                     <label for="">Contraseña</label>
                                     <input type="password" required class="form-control" formControlName="password">
                                 </div><br>
-                                <button class="btn btn-primary" (click)="login()" type="button">Iniciar Sesion</button>
+                                <button class="btn btn-primary" (click)="login()" type="button"
+                                    data-dismiss="modal">Iniciar Sesion</button>
 
                             </div>
-                        </div>
+                        </form>
                     </div>
-                </table>
+                </div>
             </div>
-        </form>
+        </div>
+
         <div *ngIf="!load" class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>
         </div>

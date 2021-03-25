@@ -128,7 +128,8 @@ export class ActulizarusuarioComponent implements OnInit {
           Swal.fire({
             icon: 'success',
             title: 'Exito',
-            text: 'Se actulizo los datos',
+            timer: 1000,
+            text: 'Se actualizaron los datos',
           })
           this.load = true;
           this.registro = false;
@@ -158,6 +159,9 @@ export class ActulizarusuarioComponent implements OnInit {
       this.load = true;
       this.registro = false;
     }
+  }
+  cancelar() {
+    this.route.navigate(['/usuarios']);
   }
 
 }

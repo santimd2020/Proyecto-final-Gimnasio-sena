@@ -121,4 +121,8 @@ export class AgregaranuncioComponent implements OnInit {
       this.registro = false;
     }
   }
+
+  cancelar(){
+    this.route.navigate(['/anuncios']);
+  }
 }

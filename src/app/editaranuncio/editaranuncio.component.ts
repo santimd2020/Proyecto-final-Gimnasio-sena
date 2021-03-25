@@ -173,4 +173,10 @@ export class EditaranuncioComponent implements OnInit {
     }
   }
 
+
+cancelar(){
+  this.route.navigate(['/anuncios']);
+}
+
+
 }

@@ -86,6 +86,10 @@ export class RegistrousuarioComponent implements OnInit {
             title: 'Exito',
             text: 'Se registro el usuario',
           })
+          //console.log(response.message)
+          //if (response==400) {
+            
+          //}
           this.registro = false;
           //Se redireciona a la pagina principal de dietas
           this.route.navigate(['/usuarios']);
@@ -133,7 +137,9 @@ export class RegistrousuarioComponent implements OnInit {
 
 
 
-
+cancelar(){
+  this.route.navigate(['/usuarios']);
+}
 
 
 

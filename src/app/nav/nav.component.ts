@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { Router } from '@angular/router';
 import { SistemaService } from '../sistema.service/sistema.service';
+import { AutentiService } from '../autenti.service'
 
 @Component({
   selector: 'app-nav',
@@ -15,8 +16,10 @@ export class NavComponent implements OnInit {
   titulos: any = [];
   texto: any = [];
 
-  constructor(private route: Router,
-    private sistema: SistemaService) { }
+  constructor(
+    private route: Router,
+    private sistema: SistemaService,
+    public auth: AutentiService) { }
 
   ngOnInit(): void {
     this.sistema.getRequestAllAnuncios('https://gymsenajorge.herokuapp.com/consultarAnuncios', localStorage.getItem('token'))
@@ -56,46 +59,28 @@ export class NavComponent implements OnInit {
   }
 
   irSistema() {
-      this.route.navigate(['/sistema']);
+    this.route.navigate(['/sistema']);
   }
   irRutinahome() {
-      this.route.navigate(['/rutinas']);
+    this.route.navigate(['/rutinas']);
   }
 
 
   irEjercicioshome() {
-      this.route.navigate(['/ejercicios']);
+    this.route.navigate(['/ejercicios']);
   }
 
   irDietashome() {
-      this.route.navigate(['/dietas']);
+    this.route.navigate(['/dietas']);
   }
-  CerrarSession(){
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Cerrando session',
-      showConfirmButton: false,
-      timer: 1000
-    })
-    setTimeout(() => {
-      this.route.navigate(['/']);
-    }, 1000);
-    localStorage.clear();
+  CerrarSession() {
+    this.auth.logout();
+    this.route.navigate(['/']);
   }
 
 
-  Verperfil(){
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Cargando perfil',
-      showConfirmButton: false,
-      timer: 1000
-    })
-    setTimeout(() => {
+  Verperfil() {
       this.route.navigate(['/perfil']);
-    }, 1000);
   }
 
 }

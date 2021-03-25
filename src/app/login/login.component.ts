@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { ConsultaejerciciosService } from '../Consultaejercicios.service/consultaejercicios.service';
 import { Router } from '@angular/router';
-
+import { AutentiService } from '../autenti.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +15,9 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   load: boolean = true;
 
-  constructor(private fb: FormBuilder,
+  constructor(
+    public auth: AutentiService,
+    private fb: FormBuilder,
     public client: ConsultaejerciciosService,
     private route: Router) { }
 
@@ -37,23 +39,27 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (response: any) => {
           console.log(response);
-          localStorage.setItem('token', response.token)
-          this.route.navigate(['/sistema']);
+          this.auth.setCurrentUser(response.nombre)
+          this.auth.login(response.token, response.user)
+          console.log(this.auth.isAdmin())
+          if (this.auth.admin.value==true) {
+            this.route.navigate(['/sistema']);
+          } else {
+            this.route.navigate(['/perfil']);
+          }
         },
-      
-
-      (error) => {
-        console.log(error);
-        Swal.fire({
-          position: 'center',
-          icon: 'error',
-          title: 'Verifique los datos ingresados',
-          showConfirmButton: false,
-          timer: 2500
-        })
-        this.load = true;
-        this.route.navigate(['/']);
-      });
+        (error) => {
+          console.log(error);
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Verifique los datos ingresados',
+            showConfirmButton: false,
+            timer: 2500
+          })
+          this.load = true;
+          this.route.navigate(['/']);
+        });
 
   }
 }

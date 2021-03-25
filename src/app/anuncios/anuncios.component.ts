@@ -107,4 +107,9 @@ export class AnunciosComponent implements OnInit {
       //Se redireciona a la pagina de aregagar ejercicios
       this.route.navigate(['/agregaranuncios']);
   }
+
+
+  atras(){
+    this.route.navigate(['/sistema']);
+  }
 }

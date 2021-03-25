@@ -138,4 +138,14 @@ export class UsuariosService {
     return this.http.get(route, config);
   }
 
+  cambiarpassword(route: string, data?: any, token?: string) {
+    let config: any = {
+      responseType: "json"
+    }
+    if (token) {
+      const header = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      config["headers"] = header;
+    }
+    return this.http.put(route, data, config);
+  }
 }

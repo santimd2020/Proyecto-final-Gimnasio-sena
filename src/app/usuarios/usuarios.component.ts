@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UsuariosService } from '../usuario.service/usuarios.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import * as FileSaver from 'file-saver';
+import { AutentiService } from '../autenti.service'
 
 @Component({
   selector: 'app-usuarios',
@@ -15,6 +16,7 @@ export class UsuariosComponent implements OnInit {
   user: any[] = [];
 
   constructor(
+    public auth: AutentiService,
     private route: Router,
     private usuarios: UsuariosService) { }
 
@@ -62,7 +64,7 @@ export class UsuariosComponent implements OnInit {
       title: "Identificacion del usuario",
       input: "text",
       showCancelButton: true,
-      confirmButtonText: "registrar",
+      confirmButtonText: "Registrar",
       cancelButtonText: "Cancelar",
     })
       .then(resultado => {
@@ -263,7 +265,7 @@ export class UsuariosComponent implements OnInit {
   downloadFileUser(data) {
     const blob = new Blob([data], { type: 'text/csv' });
     const file = new File([blob], 'report.xlsx', { type: 'application/vnd.ms-excel' });
-    FileSaver.saveAs(file, 'Reporte Usuarios.xls')
+    FileSaver.saveAs(file, 'Usuarios registrados.xls')
   }
 
   EnviarSugerencias() {

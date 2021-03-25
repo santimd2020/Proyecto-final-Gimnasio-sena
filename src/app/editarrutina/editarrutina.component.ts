@@ -131,7 +131,7 @@ export class EditarrutinaComponent implements OnInit {
     this.ejercicios = id;
 
     if (this.ejercicios.length === 1) {
-      this.form.get('id_ejercicio').setValue(this.ejercicios[0]['idejercicio']);
+      this.form.get('id_ejercicio').setValue(this.ejercicios[0]['nombre']);
       this.form.get('repeticiones').setValue(this.ejercicios[0]['repeticiones']);
       this.form.get('series').setValue(this.ejercicios[0]['series']);
       this.form.get('ejecucion').setValue(this.ejercicios[0]['ejecucion']);
@@ -141,13 +141,13 @@ export class EditarrutinaComponent implements OnInit {
 
       this.ejercicio2 = true;
 
-      this.form.get('id_ejercicio').setValue(this.ejercicios[0]['idejercicio']);
+      this.form.get('id_ejercicio').setValue(this.ejercicios[0]['nombre']);
       this.form.get('repeticiones').setValue(this.ejercicios[0]['repeticiones']);
       this.form.get('series').setValue(this.ejercicios[0]['series']);
       this.form.get('ejecucion').setValue(this.ejercicios[0]['ejecucion']);
       this.form.get('dia').setValue(this.ejercicios[0]['dia']);
 
-      this.form.get('id_ejercicio2').setValue(this.ejercicios[1]['idejercicio']);
+      this.form.get('id_ejercicio2').setValue(this.ejercicios[1]['nombre']);
       this.form.get('repeticiones2').setValue(this.ejercicios[1]['repeticiones']);
       this.form.get('series2').setValue(this.ejercicios[1]['series']);
       this.form.get('ejecucion2').setValue(this.ejercicios[1]['ejecucion']);
@@ -158,19 +158,19 @@ export class EditarrutinaComponent implements OnInit {
       this.ejercicio2 = true;
       this.ejercicio3 = true;
 
-      this.form.get('id_ejercicio').setValue(this.ejercicios[0]['idejercicio']);
+      this.form.get('id_ejercicio').setValue(this.ejercicios[0]['nombre']);
       this.form.get('repeticiones').setValue(this.ejercicios[0]['repeticiones']);
       this.form.get('series').setValue(this.ejercicios[0]['series']);
       this.form.get('ejecucion').setValue(this.ejercicios[0]['ejecucion']);
       this.form.get('dia').setValue(this.ejercicios[0]['dia']);
 
-      this.form.get('id_ejercicio2').setValue(this.ejercicios[1]['idejercicio']);
+      this.form.get('id_ejercicio2').setValue(this.ejercicios[1]['nombre']);
       this.form.get('repeticiones2').setValue(this.ejercicios[1]['repeticiones']);
       this.form.get('series2').setValue(this.ejercicios[1]['series']);
       this.form.get('ejecucion2').setValue(this.ejercicios[1]['ejecucion']);
       this.form.get('dia2').setValue(this.ejercicios[1]['dia']);
 
-      this.form.get('id_ejercicio3').setValue(this.ejercicios[2]['idejercicio']);
+      this.form.get('id_ejercicio3').setValue(this.ejercicios[2]['nombre']);
       this.form.get('repeticiones3').setValue(this.ejercicios[2]['repeticiones']);
       this.form.get('series3').setValue(this.ejercicios[2]['series']);
       this.form.get('ejecucion3').setValue(this.ejercicios[2]['ejecucion']);
@@ -182,25 +182,25 @@ export class EditarrutinaComponent implements OnInit {
       this.ejercicio3 = true;
       this.ejercicio4 = true;
 
-      this.form.get('id_ejercicio').setValue(this.ejercicios[0]['idejercicio']);
+      this.form.get('id_ejercicio').setValue(this.ejercicios[0]['nombre']);
       this.form.get('repeticiones').setValue(this.ejercicios[0]['repeticiones']);
       this.form.get('series').setValue(this.ejercicios[0]['series']);
       this.form.get('ejecucion').setValue(this.ejercicios[0]['ejecucion']);
       this.form.get('dia').setValue(this.ejercicios[0]['dia']);
 
-      this.form.get('id_ejercicio2').setValue(this.ejercicios[1]['idejercicio']);
+      this.form.get('id_ejercicio2').setValue(this.ejercicios[1]['nombre']);
       this.form.get('repeticiones2').setValue(this.ejercicios[1]['repeticiones']);
       this.form.get('series2').setValue(this.ejercicios[1]['series']);
       this.form.get('ejecucion2').setValue(this.ejercicios[1]['ejecucion']);
       this.form.get('dia2').setValue(this.ejercicios[1]['dia']);
 
-      this.form.get('id_ejercicio3').setValue(this.ejercicios[2]['idejercicio']);
+      this.form.get('id_ejercicio3').setValue(this.ejercicios[2]['nombre']);
       this.form.get('repeticiones3').setValue(this.ejercicios[2]['repeticiones']);
       this.form.get('series3').setValue(this.ejercicios[2]['series']);
       this.form.get('ejecucion3').setValue(this.ejercicios[2]['ejecucion']);
       this.form.get('dia3').setValue(this.ejercicios[2]['dia']);
 
-      this.form.get('id_ejercicio4').setValue(this.ejercicios[3]['idejercicio']);
+      this.form.get('id_ejercicio4').setValue(this.ejercicios[3]['nombre']);
       this.form.get('repeticiones4').setValue(this.ejercicios[3]['repeticiones']);
       this.form.get('series4').setValue(this.ejercicios[3]['series']);
       this.form.get('ejecucion4').setValue(this.ejercicios[3]['ejecucion']);
@@ -213,31 +213,31 @@ export class EditarrutinaComponent implements OnInit {
       this.ejercicio4 = true;
       this.ejercicio5 = true;
 
-      this.form.get('id_ejercicio').setValue(this.ejercicios[0]['idejercicio']);
+      this.form.get('id_ejercicio').setValue(this.ejercicios[0]['nombre']);
       this.form.get('repeticiones').setValue(this.ejercicios[0]['repeticiones']);
       this.form.get('series').setValue(this.ejercicios[0]['series']);
       this.form.get('ejecucion').setValue(this.ejercicios[0]['ejecucion']);
       this.form.get('dia').setValue(this.ejercicios[0]['dia']);
 
-      this.form.get('id_ejercicio2').setValue(this.ejercicios[1]['idejercicio']);
+      this.form.get('id_ejercicio2').setValue(this.ejercicios[1]['nombre']);
       this.form.get('repeticiones2').setValue(this.ejercicios[1]['repeticiones']);
       this.form.get('series2').setValue(this.ejercicios[1]['series']);
       this.form.get('ejecucion2').setValue(this.ejercicios[1]['ejecucion']);
       this.form.get('dia2').setValue(this.ejercicios[1]['dia']);
 
-      this.form.get('id_ejercicio3').setValue(this.ejercicios[2]['idejercicio']);
+      this.form.get('id_ejercicio3').setValue(this.ejercicios[2]['nombre']);
       this.form.get('repeticiones3').setValue(this.ejercicios[2]['repeticiones']);
       this.form.get('series3').setValue(this.ejercicios[2]['series']);
       this.form.get('ejecucion3').setValue(this.ejercicios[2]['ejecucion']);
       this.form.get('dia3').setValue(this.ejercicios[2]['dia']);
 
-      this.form.get('id_ejercicio4').setValue(this.ejercicios[3]['idejercicio']);
+      this.form.get('id_ejercicio4').setValue(this.ejercicios[3]['nombre']);
       this.form.get('repeticiones4').setValue(this.ejercicios[3]['repeticiones']);
       this.form.get('series4').setValue(this.ejercicios[3]['series']);
       this.form.get('ejecucion4').setValue(this.ejercicios[3]['ejecucion']);
       this.form.get('dia4').setValue(this.ejercicios[3]['dia']);
 
-      this.form.get('id_ejercicio5').setValue(this.ejercicios[4]['idejercicio']);
+      this.form.get('id_ejercicio5').setValue(this.ejercicios[4]['nombre']);
       this.form.get('repeticiones5').setValue(this.ejercicios[4]['repeticiones']);
       this.form.get('series5').setValue(this.ejercicios[4]['series']);
       this.form.get('ejecucion5').setValue(this.ejercicios[4]['ejecucion']);
@@ -251,37 +251,37 @@ export class EditarrutinaComponent implements OnInit {
       this.ejercicio5 = true;
       this.ejercicio6 = true;
 
-      this.form.get('id_ejercicio').setValue(this.ejercicios[0]['idejercicio']);
+      this.form.get('id_ejercicio').setValue(this.ejercicios[0]['nombre']);
       this.form.get('repeticiones').setValue(this.ejercicios[0]['repeticiones']);
       this.form.get('series').setValue(this.ejercicios[0]['series']);
       this.form.get('ejecucion').setValue(this.ejercicios[0]['ejecucion']);
       this.form.get('dia').setValue(this.ejercicios[0]['dia']);
 
-      this.form.get('id_ejercicio2').setValue(this.ejercicios[1]['idejercicio']);
+      this.form.get('id_ejercicio2').setValue(this.ejercicios[1]['nombre']);
       this.form.get('repeticiones2').setValue(this.ejercicios[1]['repeticiones']);
       this.form.get('series2').setValue(this.ejercicios[1]['series']);
       this.form.get('ejecucion2').setValue(this.ejercicios[1]['ejecucion']);
       this.form.get('dia2').setValue(this.ejercicios[1]['dia']);
 
-      this.form.get('id_ejercicio3').setValue(this.ejercicios[2]['idejercicio']);
+      this.form.get('id_ejercicio3').setValue(this.ejercicios[2]['nombre']);
       this.form.get('repeticiones3').setValue(this.ejercicios[2]['repeticiones']);
       this.form.get('series3').setValue(this.ejercicios[2]['series']);
       this.form.get('ejecucion3').setValue(this.ejercicios[2]['ejecucion']);
       this.form.get('dia3').setValue(this.ejercicios[2]['dia']);
 
-      this.form.get('id_ejercicio4').setValue(this.ejercicios[3]['idejercicio']);
+      this.form.get('id_ejercicio4').setValue(this.ejercicios[3]['nombre']);
       this.form.get('repeticiones4').setValue(this.ejercicios[3]['repeticiones']);
       this.form.get('series4').setValue(this.ejercicios[3]['series']);
       this.form.get('ejecucion4').setValue(this.ejercicios[3]['ejecucion']);
       this.form.get('dia4').setValue(this.ejercicios[3]['dia']);
 
-      this.form.get('id_ejercicio5').setValue(this.ejercicios[4]['idejercicio']);
+      this.form.get('id_ejercicio5').setValue(this.ejercicios[4]['nombre']);
       this.form.get('repeticiones5').setValue(this.ejercicios[4]['repeticiones']);
       this.form.get('series5').setValue(this.ejercicios[4]['series']);
       this.form.get('ejecucion5').setValue(this.ejercicios[4]['ejecucion']);
       this.form.get('dia5').setValue(this.ejercicios[4]['dia']);
 
-      this.form.get('id_ejercicio6').setValue(this.ejercicios[5]['idejercicio']);
+      this.form.get('id_ejercicio6').setValue(this.ejercicios[5]['nombre']);
       this.form.get('repeticiones6').setValue(this.ejercicios[5]['repeticiones']);
       this.form.get('series6').setValue(this.ejercicios[5]['series']);
       this.form.get('ejecucion6').setValue(this.ejercicios[5]['ejecucion']);
@@ -420,14 +420,7 @@ export class EditarrutinaComponent implements OnInit {
   }
 
   cancelar() {
-    Swal.fire({
-      icon: 'warning',
-      title: 'Cancelado',
-      showConfirmButton: false,
-      timer: 1000
-    })
     localStorage.removeItem('id');
     this.route.navigate(['/rutinas']);
-
   }
 }

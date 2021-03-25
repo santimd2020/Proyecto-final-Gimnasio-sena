@@ -29,8 +29,6 @@ import { ActulizarusuarioComponent } from './actulizarusuario/actulizarusuario.c
 import { PerfilComponent } from './perfil/perfil.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +51,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     RegistrousuarioComponent,
     UsuariosComponent,
     ActulizarusuarioComponent,
-    PerfilComponent
+    PerfilComponent,
 
   ],
   imports: [

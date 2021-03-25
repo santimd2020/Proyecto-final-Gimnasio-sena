@@ -19,7 +19,7 @@
         </table>
         <button class="btn btn-primary" (click)="irAgregarDieta()" type="button">Agregar <i
                 class="fas fa-plus-circle"></i></button>
-        <button style="margin: 8px" class="btn btn-primary" (click)="GenerarReporte()" type="button">Descargar <i
+        <button style="margin: 8px" class="btn btn-success" (click)="GenerarReporte()" type="button">Descargar <i
                 class="fas fa-file-download"></i></button>
 
 
@@ -28,7 +28,6 @@
                 <table datatable [dtOptions]="dtOptions" class="table table-bordered table-striped row-border hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Categoria</th>
                             <th scope="col">Descripcion</th>
@@ -37,7 +36,6 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let dieta of dietas">
-                            <td>{{dieta.id}}</td>
                             <td>{{dieta.nombre}}</td>
                             <td>{{dieta.categoria}}</td>
                             <td>{{dieta.descripcion}}</td>

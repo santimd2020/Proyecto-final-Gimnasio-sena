@@ -50,7 +50,7 @@ export class AgregardietasComponent implements OnInit {
           Swal.fire({
             icon: 'success',
             title: 'Exito',
-            text: 'Se registro el ejercicio',
+            text: 'Se registro la dieta',
           })
           this.registro = false;
           //Se redireciona a la pagina principal de dietas
@@ -80,5 +80,9 @@ export class AgregardietasComponent implements OnInit {
       this.registro = false;
     }
 
+  }
+
+  cancelar(){
+    this.route.navigate(['/dietas']);
   }
 }

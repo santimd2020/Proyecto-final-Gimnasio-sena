@@ -2,9 +2,9 @@
 <link rel="stylesheet" type="text/css" href="../usuarios/usuarios.component.css">
 <div class="container">
     <section>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="row row-cols-1 row-cols-md-4 g-4" *ngIf="auth.isAdmin()|async">
 
-            <div class="col">
+            <div class="col" >
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Registrar Usuario</h5>
@@ -46,7 +46,7 @@
         </div>
 
         <br>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4"*ngIf="auth.isAdmin()|async">
 
             <div class="col">
                 <div class="card h-100">
@@ -60,7 +60,7 @@
             <div class="col">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Descargar reporte Ingreso</h5>
+                        <h5 class="card-title">Reporte Ingreso</h5>
                         <button class="btn btn-success" (click)="DescargarReporte()" type="button"><i class="fas fa-download"></i></button>
                     </div>
                 </div>
@@ -70,14 +70,14 @@
             <div class="col">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Descargar reporte personas</h5>
+                        <h5 class="card-title">Reporte usuarios registrados</h5>
                         <button class="btn btn-success" (click)="DescargarReporteUsuarios()" type="button"><i class="fas fa-download"></i></button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <table class="table">
+        <table class="table" *ngIf="auth.isAdmin()|async">
             <div class="carta1">
                 <div class="row text-center">
                     <div class="col-lg-3 col-md-6 mb-4">
@@ -94,7 +94,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Ingresos y salidas del sistema</h5>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
                             aria-label="Exit">Cerrar</button>
                     </div>
                     <div class="modal-body">
@@ -107,7 +107,7 @@
                                             <th scope="col">Nombre</th>
                                             <th scope="col">Apellido</th>
                                             <th scope="col">Edad</th>
-                                            <th scope="col">ID persona</th>
+                                            <th scope="col">Documento</th>
                                             <th scope="col">Fecha</th>
                                             <th scope="col">Ficha</th>
                                             <th scope="col">Hora entrada</th>
@@ -145,7 +145,7 @@
                             <th scope="col">Nombres</th>
                             <th scope="col">Apellidos</th>
                             <th scope="col">Edad</th>
-                            <th scope="col">ID persona</th>
+                            <th scope="col">Documento</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Ficha</th>
                             <th scope="col">Programa</th>

@@ -25,7 +25,6 @@
                 <table datatable [dtOptions]="dtOptions" class="table  table-bordered table-striped row-border hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripcion</th>
                             <th scope="col">Intensidad</th>
@@ -36,7 +35,6 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let rutinas of rutinas">
-                            <td>{{rutinas.id}}</td>
                             <td>{{rutinas.nombre}}</td>
                             <td>{{rutinas.descripcion}}</td>
                             <td>{{rutinas.intensidad}}</td>
@@ -77,8 +75,6 @@
                                             <th scope="col">Descripcion</th>
                                             <th scope="col">Dia</th>
                                             <th scope="col">Ejecucion</th>
-                                            <th scope="col">Id ejercicio</th>
-                                            <th scope="col">Id rutinas</th>
                                             <th scope="col">Imagen</th>
                                             <th scope="col">Repeticiones</th>
                                             <th scope="col">Series</th>
@@ -92,16 +88,10 @@
                                             <td>{{ejercicios.descripcion}}</td>
                                             <td>{{ejercicios.dia}}</td>
                                             <td>{{ejercicios.ejecucion}}</td>
-                                            <td>{{ejercicios.idejercicio}}</td>
-                                            <td>{{ejercicios.idrutinas}}</td>
-                                            <td><a href={{ejercicios.imagen}} target="_blank"><img
-                                                        src="{{ejercicios.imagen}}" alt="" width="200"
-                                                        height="100px"></a></td>
-
+                                            <td><a href={{ejercicios.imagen}} target="_blank"><img src="{{ejercicios.imagen}}" alt="" width="200" height="100px"></a></td>
                                             <td>{{ejercicios.repeticiones}}</td>
                                             <td>{{ejercicios.series}}</td>
                                             <td>{{ejercicios.tipo}}</td>
-
                                         </tr>
                                     </tbody>
                                 </table>

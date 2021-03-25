@@ -1,9 +1,29 @@
 .login{
-margin: auto;
+margin: unset;
 width: fit-content;
 }
-
 .spinner-border {
 margin-left: 48%;
 margin-top: 50px;
+}
+
+.modal-body{
+    text-align: center;
+  
+}
+.modal-title{
+    text-align: center;
+    color: orange;;
+}
+.h5{
+    text-align: center;
+    color: orange;;
+}
+.exampleModalLongTitle{
+    text-align: center;
+    color: orange;;
+}
+.modal-header{
+text-align: center;
+color: orange;;
 }

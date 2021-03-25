@@ -105,4 +105,9 @@ export class EditardietaComponent implements OnInit {
     }
 
   }
+
+
+  cancelar(){
+    this.route.navigate(['/dietas']);
+  }
 }

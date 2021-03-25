@@ -128,4 +128,8 @@ export class AgregarejercicioComponent implements OnInit {
       this.registro = false;
     }
   }
+
+  cancelar(){
+    this.route.navigate(['/ejercicios']);
+  }
 }

@@ -150,4 +150,7 @@ export class EditarejercicioComponent implements OnInit {
     }
 
   }
+  cancelar() {
+    this.route.navigate(['/ejercicios']);
+  }
 }

@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="../nav/nav.component.css">
 
 
-<div class="container">
+<div class="container" *ngIf="auth.isLoggedin()|async">
   <section>
     <div class="d-flex justify-content-around flex-wrap">
 
@@ -32,10 +32,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
 
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="auth.isAdmin()|async">
               <form (click)="irIngresar()"><a class="nav-link">Usuarios</a></form>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="auth.isAdmin()|async">
               <form (click)="irSistema()"><a class="nav-link">Sistema</a></form>
             </li>
 
@@ -66,8 +66,8 @@
         <div class="p-2 bd-highlight"><img class="img-fluid" alt="Responsive image" src="../static/images/persona.png"
             style="width: 110px; height: 110px;"></div>
         <div class="p-2 bd-highlight">
-          <h2>Admin</h2>
-          <button class="btn btn-primary" (click)="CerrarSession()" type="button">Cerrar Session <i
+          <h2>{{auth.getCurrentUser()}}</h2>
+          <button class="btn btn-primary" (click)="CerrarSession()" type="button">Cerrar Sesion <i
               class="fas fa-sign-out-alt"></i></button><br><br>
           <button class="btn btn-success" (click)="Verperfil()" type="button">Ver perfil <i
               class="fas fa-user-cog"></i></button><br>

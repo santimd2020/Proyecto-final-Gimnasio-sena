@@ -9,7 +9,7 @@
                 <div class="row text-center">
                     <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card-body">
-                            <h5 class="card-title">Actualizar de rutinas</h5>
+                            <h5 class="card-title">Actualizar rutinas</h5>
                         </div>
                     </div>
                 </div>
@@ -70,18 +70,31 @@
                         </div><br>
                     </div>
 
+                    <table class="table">
+                        <div class="carta">
+                            <div class="row text-center">
+                                <div class="col-lg-3 col-md-6 mb-4">
+                                    <div class="card-body">
+                                        <br>
+                                        <h5 class="card-title">Actualizar ejercicios</h5>
+                                        <br>
+                                        <div *ngFor="let rutinas of rutinas">
+                                         
+                                            <button type="button" class="btn btn-info" (click)="ejercicio(rutinas.ejercicios)">Ver ejercicios <i class="fas fa-eye"></i></button>
+                                            <div *ngFor="let ejercicios of ejercicios"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </table>
 
-                    <div *ngFor="let rutinas of rutinas">
-                        <br><br><br><br>
-                        <button type="button" class="btn btn-info" (click)="ejercicio(rutinas.ejercicios)"><i
-                                class="fas fa-eye"></i></button>
-                        <div *ngFor="let ejercicios of ejercicios"></div>
-                    </div>
+                    
 
                     <div class="col-md-2">
                         <div class="tipo">
-                            <label class="form-label">ID ejercicio</label>
-                            <input type="number" class="form-control" formControlName="id_ejercicio">
+                            <label class="form-label">Ejercicio</label>
+                            <input type="text" class="form-control" formControlName="id_ejercicio">
                         </div>
                     </div>
 
@@ -133,8 +146,8 @@
 
                     <div class="col-md-2" *ngIf="ejercicio2">
                         <div class="tipo">
-                            <label class="form-label">ID ejercicio</label>
-                            <input type="number" class="form-control" formControlName="id_ejercicio2">
+                            <label class="form-label">Ejercicio</label>
+                            <input type="text" class="form-control" formControlName="id_ejercicio2">
                         </div>
                     </div>
 
@@ -184,8 +197,8 @@
 
                     <div class="col-md-2" *ngIf="ejercicio3">
                         <div class="tipo">
-                            <label class="form-label">ID ejercicio</label>
-                            <input type="number" class="form-control" formControlName="id_ejercicio3">
+                            <label class="form-label">Ejercicio</label>
+                            <input type="text" class="form-control" formControlName="id_ejercicio3">
                         </div>
                     </div>
 
@@ -235,8 +248,8 @@
 
                     <div class="col-md-2" *ngIf="ejercicio4">
                         <div class="tipo">
-                            <label class="form-label">ID ejercicio</label>
-                            <input type="number" class="form-control" formControlName="id_ejercicio4">
+                            <label class="form-label">Ejercicio</label>
+                            <input type="text" class="form-control" formControlName="id_ejercicio4">
                         </div>
                     </div>
 
@@ -286,8 +299,8 @@
 
                     <div class="col-md-2" *ngIf="ejercicio5">
                         <div class="tipo">
-                            <label class="form-label">ID ejercicio</label>
-                            <input type="number" class="form-control" formControlName="id_ejercicio5">
+                            <label class="form-label">Ejercicio</label>
+                            <input type="text" class="form-control" formControlName="id_ejercicio5">
                         </div>
                     </div>
 
@@ -336,8 +349,8 @@
 
                     <div class="col-md-2" *ngIf="ejercicio6">
                         <div class="tipo">
-                            <label class="form-label">ID ejercicio</label>
-                            <input type="number" class="form-control" formControlName="id_ejercicio6">
+                            <label class="form-label">Ejercicio</label>
+                            <input type="text" class="form-control" formControlName="id_ejercicio6">
                         </div>
                     </div>
 
@@ -385,10 +398,10 @@
                     </div>
 
                     <div class="col-8">
-                        <button type="submit" style="margin: 8px" class="btn btn-primary">Registrar</button>
-                        <button type="submit" (click)="cancelar()" class="btn btn-danger">Cancelar</button>
+                        <button type="submit" style="margin: 8px" class="btn btn-primary">Actualizar <i class="far fa-save"></i></button>
+                        <button type="submit" (click)="cancelar()" class="btn btn-danger">Cancelar <i class="fas fa-window-close"></i></button>
+                        <p>Los ejercicios deben ser visibles antes de actualizar</p>
                     </div>
-
                     <div class="col-8"><br>
                       
                     </div>

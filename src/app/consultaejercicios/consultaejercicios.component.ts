@@ -98,75 +98,72 @@ export class ConsultaejerciciosComponent implements OnInit {
 
   //Metodo que elimina los ejercicios
   eliminarEjerciciosPorId(id) {
-    this.tablaejerciciosPorId = true;
-    this.load = false;
-    this.tablaejercicios = true;
-    //Se llama al servicio y se apunta directamente al serve, Se le envia id del ejercicios y token de autenticacion
-    this.client.deleteEjercicios('https://proyectofinalsena.herokuapp.com/eliminarEjercicios/' + id, localStorage.getItem('token'))
-      .subscribe(
-        (data): any => {
-          //Se imprime el mensaje del serve y se muestran la notificacion al usuario.
-          console.log(data)
-          this.tablaejerciciosPorId = true;
-          this.load = true;//se oculta el spinner
-          this.tablaejercicios = false;
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Se elimino correctamente',
-            timer: 1000
-          })
-          window.location.reload();
-        },
-        (error) => {
-          //En caso de error se imprime el mensaje de error del serve y se le notifica al usuario.
-          console.log(error)
-          this.load = true;//se oculta el spinner
-          this.form.get('id').setValue('');
-          this.tablaejerciciosPorId = true;
-          this.tablaejercicios = false;
-          Swal.fire({
-            icon: 'warning',
-            title: '¡Atencion!',
-            text: 'El id no se encuentra registrado',
-            footer: 'Verifique el id ingresado'
-          })
-        }
-      )
+
+
+
+
+
+    Swal.fire({
+      title: '¿Seguro desea eliminar?',
+      showCancelButton: true,
+      confirmButtonText: `Eliminar`,
+      cancelButtonText: `Cancelar`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.load = false;
+        this.tablaejerciciosPorId = true;
+        this.load = false;
+        this.tablaejercicios = true;
+        //Se llama al servicio y se apunta directamente al serve, Se le envia id del ejercicios y token de autenticacion
+        this.client.deleteEjercicios('https://proyectofinalsena.herokuapp.com/eliminarEjercicios/' + id, localStorage.getItem('token'))
+          .subscribe(
+            (data): any => {
+              //Se imprime el mensaje del serve y se muestran la notificacion al usuario.
+              console.log(data)
+              this.tablaejerciciosPorId = true;
+              this.load = true;//se oculta el spinner
+              this.tablaejercicios = false;
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se elimino correctamente',
+                timer: 1000
+              })
+              window.location.reload();
+            },
+            (error) => {
+              //En caso de error se imprime el mensaje de error del serve y se le notifica al usuario.
+              console.log(error)
+              this.load = true;//se oculta el spinner
+              this.form.get('id').setValue('');
+              this.tablaejerciciosPorId = true;
+              this.tablaejercicios = false;
+              Swal.fire({
+                icon: 'warning',
+                title: '¡Atencion!',
+                text: 'El id no se encuentra registrado',
+                footer: 'Verifique el id ingresado'
+              })
+            }
+          )
+      } else if (result.isDenied) {
+      }
+    })
   }
 
   //Se crea el metodo de editar ejercicio, con un parametro.
   editarEjerciciosPorId(id) {
-    //Se le notifica al usuario y se redireccionamiento
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      showConfirmButton: false,
-      title: 'Cargando',
-      timer: 2000
-    })
+    //Se le notifica al usuario y se redireccionamient
     //Se guarda el parametro id en el localStorage para pasarlo para la consulta de ejercicio por id
     localStorage.setItem('id', id)
-    setTimeout(() => {
-      //Se navega a la ruta de editar ejercicios
-      this.route.navigate(['/editarejercicios']);
-    }, 2000);
-
+    //Se navega a la ruta de editar ejercicios
+    this.route.navigate(['/editarejercicios']);
   }
   //Metodo de agregar ejercicios
   irAgregarEjercicios() {
     //Se muestra el mensaje de notificacion al usuario.
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Validando formulario',
-      showConfirmButton: false,
-      timer: 2000
-    })
-    setTimeout(() => {
-      //Se redireciona a la pagina de aregagar ejercicios
-      this.route.navigate(['/agregarejercicios']);
-    }, 2000);
+    //Se redireciona a la pagina de aregagar ejercicios
+    this.route.navigate(['/agregarejercicios']);
 
   }
 }

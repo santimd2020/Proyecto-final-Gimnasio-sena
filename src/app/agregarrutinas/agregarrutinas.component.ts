@@ -188,10 +188,14 @@ export class AgregarrutinasComponent implements OnInit {
         (data): any => {
           //Se guarda los datos que trae el json del serve, ala propiedad dietas.
           this.ejercicios = data['Ejercicios']
-          console.log(data)
-          console.log("guzman",data['ejercicios'])
+          console.log(data);
           //Se imprime el mensaje del serve y se le notifica al usuario.
         },
         error => { console.log(error) })
+  }
+
+
+  cancelar(){
+    this.route.navigate(['/rutinas']);
   }
 }

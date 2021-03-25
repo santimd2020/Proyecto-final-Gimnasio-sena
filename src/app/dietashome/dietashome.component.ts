@@ -127,18 +127,7 @@ export class DietashomeComponent implements OnInit {
   }
 
   irAgregarDieta() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Validando formulario',
-      showConfirmButton: false,
-      timer: 2000
-    })
-    setTimeout(() => {
       this.route.navigate(['/agregardietas']);
-    }, 2000);
-
-
   }
 
   GenerarReporte() {

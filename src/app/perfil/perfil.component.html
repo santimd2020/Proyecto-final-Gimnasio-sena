@@ -3,30 +3,25 @@
 <div class="container">
     <section>
 
-        <table class="table">
-            <div class="carta">
-                <div class="row text-center">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Perfil Usuario</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </table>
-
         <div class="formulario" *ngFor="let usuarios of usuario">
+            <h2 class="card-title">Perfil</h2>
             <div class="card" style="width: 18rem;">
-                <img src="{{usuarios.imagen}}" alt=""width="200" height="100px" class="card-img-top" alt="...">
+                <img src="{{usuarios.imagen}}" alt="" width="200" height="200px" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">{{usuarios.nombres}} {{usuarios.apellidos}}</h5>
+                    <h3 class="card-title">{{usuarios.nombres}} {{usuarios.apellidos}}</h3>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Correo:{{usuarios.correo}}</li>
-                  <li class="list-group-item">Edad:{{usuarios.edad}}</li>
-                  <li class="list-group-item">telefono:{{usuarios.telefono}}</li>
+                    <li class="list-group-item">
+                        <button type="submit" style="margin: 8px;" class="btn btn-primary">Actualizar <i
+                                class="far fa-save"></i></button>
+                        <button type="submit" class="btn btn-success">Rutina <i class="fas fa-dumbbell"></i></button>
+                    </li>
+                    <li class="list-group-item"> <button type="submit" (click)="cambiarcontrasena()" style="margin: auto;width:fit-content;" class="btn btn-warning">Cambiar contraseña <i class="fas fa-key"></i></button></li>
+                    <li class="list-group-item">Correo: {{usuarios.correo}}</li>
+                    <li class="list-group-item">Edad: {{usuarios.edad}}</li>
+                    <li class="list-group-item">Telefono: {{usuarios.telefono}}</li>
                 </ul>
-              </div>
+            </div>
         </div>
 
 

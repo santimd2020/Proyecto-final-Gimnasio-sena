@@ -24,7 +24,6 @@
                 <table datatable [dtOptions]="dtOptions" class="table  table-bordered table-striped row-border hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">ID</th>
                             <th scope="col">Tipo</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripcion</th>
@@ -34,7 +33,6 @@
                     </thead>
                     <tbody >
                         <tr *ngFor="let ejercicio of ejercicios">
-                            <td>{{ejercicio.id}}</td>
                             <td>{{ejercicio.tipo}}</td>
                             <td>{{ejercicio.nombre}}</td>
                             <td>{{ejercicio.descripcion}}</td>

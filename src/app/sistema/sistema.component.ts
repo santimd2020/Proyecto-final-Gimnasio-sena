@@ -3,6 +3,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { SistemaService } from '../sistema.service/sistema.service';
 import { Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
+import { AutentiService } from '../autenti.service'
 
 @Component({
   selector: 'app-sistema',
@@ -18,60 +19,68 @@ export class SistemaComponent implements OnInit {
   estadisticas;
 
   constructor(
+    public auth: AutentiService,
     private sistema: SistemaService,
     private route: Router) { }
 
   ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 5,
-      language: {
-        url: "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
-      },
-    };
 
-    this.sistema.getRequestAllTest('https://gymsenajorge.herokuapp.com/consultarTest', localStorage.getItem('token'))
-      .subscribe(
-        (data): any => {
-          //Se guarda los datos que trae el json del serve, ala propiedad dietas.
-          this.tests = data['test']
-          this.tablatest = false;
-          this.load = true;
-          console.log(data)
-          //Se imprime el mensaje del serve y se le notifica al usuario.
-          if (this.tests == null) {
-            //Se hace una validacion, en donde si dietas queda vacio signifca que el token vencio y se debe renovar.
+    if (this.auth.isAdmin) {
+      this.dtOptions = {
+        pagingType: 'full_numbers',
+        pageLength: 5,
+        language: {
+          url: "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+        },
+      };
+
+      this.sistema.getRequestAllTest('https://gymsenajorge.herokuapp.com/consultarTest', localStorage.getItem('token'))
+        .subscribe(
+          (data): any => {
+            //Se guarda los datos que trae el json del serve, ala propiedad dietas.
+            this.tests = data['test']
+            this.tablatest = false;
+            this.load = true;
+            console.log(data)
+            //Se imprime el mensaje del serve y se le notifica al usuario.
+            if (this.tests == null) {
+              //Se hace una validacion, en donde si dietas queda vacio signifca que el token vencio y se debe renovar.
+              Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                showConfirmButton: false,
+                title: 'Session Expirada',
+                timer: 2000
+              })
+              //Se limpia el localStorga y se redirige al login para generar un nuevo token.
+              //localStorage.clear();
+              setTimeout(() => {
+                //Se redireciona a la pantalla principal.
+                //this.route.navigate(['/']);
+              }, 2000);
+            }
+          },
+          error => {
+            console.log(error)
+            this.load = true;
             Swal.fire({
               position: 'center',
               icon: 'warning',
               showConfirmButton: false,
-              title: 'Session Expirada',
+              title: 'No existen test asignados al usuario',
               timer: 2000
             })
-            //Se limpia el localStorga y se redirige al login para generar un nuevo token.
-            //localStorage.clear();
-            setTimeout(() => {
-              //Se redireciona a la pantalla principal.
-              //this.route.navigate(['/']);
-            }, 2000);
-          }
-        },
-        error => { console.log(error) 
-          this.load = true;
-          Swal.fire({
-            position: 'center',
-            icon: 'warning',
-            showConfirmButton: false,
-            title: 'No existen test asignados al usuario',
-            timer: 2000
           })
-        })
+
+    }else{
+
+    }
   }
 
   CalcularTest() {
     Swal.fire({
       title: 'Calcular Test',
-      html: `<input type="number" id="identificacion" class="swal2-input" placeholder="Identificacion">
+      html: `<input type="text" id="identificacion" class="swal2-input" placeholder="Numero de Identificacion">
       <input type="number" id="peso" class="swal2-input" placeholder="peso">
       <input type="number" id="altura" class="swal2-input" placeholder="altura">`,
       cancelButtonText: `Cancelar`,
@@ -124,7 +133,8 @@ export class SistemaComponent implements OnInit {
             Swal.fire({
               icon: 'error',
               title: '¡Atencion!',
-              text: 'Error al asignar',
+              text: 'Error al calcular',
+              footer: 'solo debe ingresar valores numericos',
             })
           }
         )
@@ -149,16 +159,7 @@ export class SistemaComponent implements OnInit {
 
 
   IrAnuncios() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      showConfirmButton: false,
-      title: 'Cargando',
-      timer: 2000
-    })
-    setTimeout(() => {
       this.route.navigate(['/anuncios']);
-    }, 2000);
   }
 
 

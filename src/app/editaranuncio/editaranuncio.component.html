@@ -20,11 +20,6 @@
             <div class="formulario">
                 <form class="row g-3-" [formGroup]="form" (ngSubmit)="onSubmit()">
 
-                    <div class="col-md-2">
-                        <label class="form-label">ID</label>
-                        <input type="text" class="form-control" formControlName="id">
-                    </div>
-
                     <div class="col-md-6">
                         <label class="form-label">Nombre</label>
                         <input type="text" class="form-control" formControlName="titulo">
@@ -58,7 +53,8 @@
                     </div>
 
                     <div class="col-8"><br>
-                        <button type="submit" class="btn btn-primary">Registrar</button>
+                        <button type="submit" style="margin: 8px;" class="btn btn-primary">Actualizar <i class="far fa-save"></i></button>
+                        <button type="submit" (click)="cancelar()" class="btn btn-danger">Cancelar <i class="fas fa-window-close"></i></button>
                     </div>
                 </form>
             </div>
