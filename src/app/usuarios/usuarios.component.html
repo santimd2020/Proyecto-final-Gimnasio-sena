@@ -2,9 +2,9 @@
 <link rel="stylesheet" type="text/css" href="../usuarios/usuarios.component.css">
 <div class="container">
     <section>
-        <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="auth.isAdmin()|async">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
 
-            <div class="col" >
+            <div class="col" *ngIf="auth.isAdmin()|async">
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Registrar Usuario</h5>
@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <div class="col">
+            <div class="col" *ngIf="auth.isAdmin()|async">
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Registrar Entrada</h5>
@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            <div class="col">
+            <div class="col" *ngIf="auth.isAdmin()|async">
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Registrar Salida</h5>
@@ -34,25 +34,17 @@
                 </div>
             </div>
 
-
-            <div class="col"  *ngIf="auth.isUser()|async">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Enviar sugerencias</h5>
-                        <button class="btn btn-primary" (click)="EnviarSugerencias()" type="button"><i class="fas fa-paper-plane"></i></button>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <br>
-        <div class="row row-cols-1 row-cols-md-3 g-4"*ngIf="auth.isAdmin()|async">
+        <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="auth.isAdmin()|async">
 
             <div class="col">
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Consulta ingreso - salida</h5>
-                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"(click)="ConsultarEntrada()" type="button"><i class="fas fa-search"></i></button>
+                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            (click)="ConsultarEntrada()" type="button"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </div>
@@ -61,7 +53,8 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Reporte Ingreso</h5>
-                        <button class="btn btn-success" (click)="DescargarReporte()" type="button"><i class="fas fa-download"></i></button>
+                        <button class="btn btn-success" (click)="DescargarReporte()" type="button"><i
+                                class="fas fa-download"></i></button>
                     </div>
                 </div>
             </div>
@@ -71,7 +64,8 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Reporte usuarios registrados</h5>
-                        <button class="btn btn-success" (click)="DescargarReporteUsuarios()" type="button"><i class="fas fa-download"></i></button>
+                        <button class="btn btn-success" (click)="DescargarReporteUsuarios()" type="button"><i
+                                class="fas fa-download"></i></button>
                     </div>
                 </div>
             </div>
@@ -101,7 +95,8 @@
 
                         <div *ngIf="ingreso.length>0">
                             <div class="table-responsive">
-                                <table datatable [dtOptions]="dtOptions" class="table table-bordered table-striped row-border hover">
+                                <table datatable [dtOptions]="dtOptions"
+                                    class="table table-bordered table-striped row-border hover">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th scope="col">Nombre</th>
@@ -136,7 +131,7 @@
             </div>
         </div>
 
-<br>
+        <br>
         <div *ngIf="user.length>0">
             <div class="table-responsive">
                 <table datatable [dtOptions]="dtOptions" class="table table-bordered table-striped row-border hover">
@@ -169,16 +164,38 @@
                             <td>{{users.telefono}}</td>
                             <td>{{users.tipopersona}}</td>
                             <td>{{users.tipouser}}</td>
-                            <td><button type="button" class="btn btn-danger" (click)="EliminarUsuario(users.documento)"><i class="fas fa-trash"></i></button>
-                                <button type="button" class="btn btn-warning" style="margin: 8px"(click)="ActulizarUsuario(users.documento)"><i class="far fa-edit"></i></button></td>
+                            <td><button type="button" class="btn btn-danger"
+                                    (click)="EliminarUsuario(users.documento)"><i class="fas fa-trash"></i></button>
+                                <button type="button" class="btn btn-warning" style="margin: 8px"
+                                    (click)="ActulizarUsuario(users.documento)"><i class="far fa-edit"></i></button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-
-        <div *ngIf="!load" class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
+        <section *ngIf="auth.isUser()|async">
+            <h1 style="color: rgb(255, 123, 0); text-align: center;">Envio de Sugerencias<br><br></h1>
+            <h5 style="text-align: justify;">Aqui podrá enviar sugerencias acerca del gimnasio:</h5><br>
+            <div class="row">
+                <img src="../static/images/Logo.jpeg" class="img-fluid col-sm-4 mx-auto">
+                <div class="form-floating col-xs-12 col-sm-6 col-md-4 mx-auto">
+                    <div class="col" *ngIf="auth.isUser()|async">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <p>Enviamos sugerencias siempre para mejorar nuestro servicio para ti</p>
+                                <button class="btn btn-primary" (click)="EnviarSugerencias()" type="button">Enviar
+                                    sugerencias <i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div *ngIf="auth.isAdmin()|async">
+            <div *ngIf="!load" class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
         </div>
     </section>
 </div>

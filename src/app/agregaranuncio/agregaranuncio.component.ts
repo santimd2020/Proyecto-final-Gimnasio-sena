@@ -91,6 +91,7 @@ export class AgregaranuncioComponent implements OnInit {
             icon: 'success',
             title: 'Exito',
             text: 'Se registro el anuncio',
+            timer:1000
           })
           this.load = true;
           this.registro = false;

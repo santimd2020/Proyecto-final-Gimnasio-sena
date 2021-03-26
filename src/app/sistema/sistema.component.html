@@ -64,6 +64,7 @@
                             <th scope="col">IMC</th>
                             <th scope="col">Peso</th>
                             <th scope="col">Talla</th>
+                            <th scope="col">Estado</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,9 +72,10 @@
                             <td>{{test.nombres}}</td>
                             <td>{{test.apellidos}}</td>
                             <td>{{test.documento}}</td>
-                            <td>{{test.imc}}</td>
+                            <td>{{test.imc|number}}</td>
                             <td>{{test.peso}}</td>
                             <td>{{test.talla}}</td>
+                            <td>{{test.estado}}</td>
                         </tr>
                     </tbody>
                 </table>

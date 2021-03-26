@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
               timer: 2500
             })
             this.route.navigate(['/']);
-          }, 1800000);
+          }, 1500000);
 
         },
         (error) => {

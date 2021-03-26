@@ -116,9 +116,9 @@ export class PerfilComponent implements OnInit {
     })
       .then(resultado => {
         if (resultado.value) {
-          console.log(resultado.value);
+          console.log("dasdas",resultado.value.identificacion);
           this.usuarios.cambiarpassword('https://gymsenapinzon.herokuapp.com/cambiarPassword', {
-            password: resultado.value,
+            password: resultado.value.identificacion,
           }, localStorage.getItem('token'))
             .subscribe(
               (data): any => {

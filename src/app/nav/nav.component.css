@@ -12,6 +12,8 @@ a{
 cursor:pointer;
 }
 .anuncio{
-position: unset;
-float: left;
+position: initial;
+max-width: 550px;
+max-height: 250px;
+margin-right: 25px;
 }
