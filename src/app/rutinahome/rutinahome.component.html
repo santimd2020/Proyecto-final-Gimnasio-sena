@@ -43,7 +43,7 @@
                             <td><button type="button" class="btn btn-info" data-bs-toggle="modal"data-bs-target="#exampleModal" (click)="ejercicio(rutinas.ejercicios)"><i class="fas fa-eye"></i></button>
                                 <button type="button" *ngIf="auth.isAdmin()|async" style="margin: 8px" class="btn btn-danger"(click)="eliminarRutinaPorId(rutinas.id)"><i class="fas fa-trash"></i></button>
                                 <button type="button" *ngIf="auth.isAdmin()|async" class="btn btn-warning" (click)="editarRutinaPorId(rutinas.id)"><i class="far fa-edit"></i></button>
-                                <button  *ngIf="auth.isAdmin()|async" class="btn btn-primary" style="margin-left: 8px" (click)="asignarRutinaPorId(rutinas.id)" type="button"><i class="fas fa-user"></i></button>  
+                                <button  *ngIf="auth.isAdmin()|async" class="btn btn-primary" style="margin: 8px" (click)="asignarRutinaPorId(rutinas.id)" type="button"><i class="fas fa-user"></i></button>  
                             </td>
                         </tr>
                     </tbody>

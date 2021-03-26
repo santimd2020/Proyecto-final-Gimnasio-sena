@@ -3,30 +3,53 @@
 <div class="container">
     <section>
 
-        <div class="formulario" *ngFor="let usuarios of usuario">
-            <h2 class="card-title">Perfil</h2>
-            <div class="card" style="width: 18rem;">
-                <img src="{{usuarios.imagen}}" alt="" width="200" height="280px" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h3 class="card-title">{{usuarios.nombres}} {{usuarios.apellidos}}</h3>
+        <h1 style="color: rgb(255, 123, 0); text-align: center;">Bienvenido al Gimnasio del Sena<br><br></h1>
+        <div class="row">
+           
+            <div class="col-xs-12 col-sm-6 col-md-4 shadow " *ngFor="let usuarios of usuario">
+
+                <img style="width: 80px; height: 80px;" src="{{usuarios.imagen}}" class="float-left rounded">
+                <br>
+                <h3>{{usuarios.nombres}} {{usuarios.apellidos}}</h3><br>
+                <p>
+                    <strong>Información </strong><br>
+                    Correo: {{usuarios.correo}}<br>Telefono: {{usuarios.telefono}}<br>Edad: {{usuarios.edad}} <br>
+
+                </p>
+                <strong>Configuracion</strong>
+                
+                <div class="card-body text-center" >
+                    <button type="submit" (click)="cambiarcontrasena()" style="margin: auto;width:fit-content;"class="btn btn-warning">Cambiar contraseña <i class="fas fa-key"></i></button>
+                    <button type="submit" style="margin: 5px;" (click)="actulizar()" class="btn btn-primary">Actualizar<i class="far fa-save"></i></button>
+                    <div *ngFor="let rutinas of rutinas">
+                    <button type="submit"  data-bs-toggle="modal" data-bs-target="#exampleModal"(click)="ejercicio(rutinas.ejercicios)" class="btn btn-success">Rutina <i class="fas fa-dumbbell"></i></button>
                 </div>
-                <ul class="list-group list-group-flush" >
-                    <button type="submit" style="margin: 8px;" (click)="actulizar()"class="btn btn-primary">Actualizar <i class="far fa-save"></i></button>
-                        
-                    <li class="list-group-item"> <button type="submit" (click)="cambiarcontrasena()" style="margin: auto;width:fit-content;" class="btn btn-warning">Cambiar contraseña <i class="fas fa-key"></i></button></li>
-                    <li class="list-group-item" *ngFor="let rutinas of rutinas">
-                        <button type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal"(click)="ejercicio(rutinas.ejercicios)" class="btn btn-success">Rutina <i class="fas fa-dumbbell"></i></button>
-                    </li>
-                    <li class="list-group-item">Correo: {{usuarios.correo}}</li>
-                    <li class="list-group-item">Edad: {{usuarios.edad}}</li>
-                    <li class="list-group-item">Telefono: {{usuarios.telefono}}</li>
-                </ul>
+                </div>
+              
             </div>
-        </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 ">
+                <div class="img-fluid col-sm mx-auto">
+                    <img style="width:180px; height: 180px; margin-left: 70px;" src="../static/images/rutina.jpeg">
+
+                    <p style="padding-top: 10px; margin-left: 35px;"> Alcanza tus objetivos con secciones de
+                        entrenamiento
+                        personal. Todos somos diferentes, por eso crearemos el programa adecuado para tu beneficio.
+                    </p>
 
 
-        <div *ngIf="!load" class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="img-fluid col-sm mx-auto">
+                    <img style="width: 180px; height: 180px; margin-left: 60px;" src="../static/images/nutricion.jpeg">
+                    <div class="media">
+                        <p style="padding-top: 10px; margin-left: 30px;"> Personaliza su programa nutricional en
+                            función de su tipo metabólico, objetivos, nivel de actividad y estilo de vida.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -95,18 +118,18 @@
 
                                         </tr>
                                     </thead>
-                                    <tbody *ngFor="let ejercicios of ejercicios">
+                                    <tbody *ngFor="let item of ejercicios">
                                         <tr>
-                                            <td>{{ejercicios.nombre}}</td>
-                                            <td>{{ejercicios.descripcion}}</td>
-                                            <td>{{ejercicios.dia}}</td>
-                                            <td>{{ejercicios.ejecucion}}</td>
-                                            <td><a href={{ejercicios.imagen}} target="_blank"><img
-                                                        src="{{ejercicios.imagen}}" alt="" width="200"
+                                            <td>{{item.nombre}}</td>
+                                            <td>{{item.descripcion}}</td>
+                                            <td>{{item.dia}}</td>
+                                            <td>{{item.ejecucion}}</td>
+                                            <td><a href={{item.imagen}} target="_blank"><img
+                                                        src="{{item.imagen}}" alt="" width="200"
                                                         height="100px"></a></td>
-                                            <td>{{ejercicios.repeticiones}}</td>
-                                            <td>{{ejercicios.series}}</td>
-                                            <td>{{ejercicios.tipo}}</td>
+                                            <td>{{item.repeticiones}}</td>
+                                            <td>{{item.series}}</td>
+                                            <td>{{item.tipo}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -116,6 +139,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div *ngIf="!load" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
         </div>
 
     </section>

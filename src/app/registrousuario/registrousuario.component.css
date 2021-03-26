@@ -1,11 +1,14 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
 .spinner-border {
 margin-left: 48%;
 margin-top: 50px;
 }
+
 h5{
 color:  rgb(255, 123, 0);
-}
-input::-webkit-inner-spin-button {  
-    -webkit-appearance: none;
-    margin: 0;
 }

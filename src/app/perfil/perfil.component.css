@@ -24,8 +24,9 @@ text-align: center;
 }
 
 .spinner-border {
-margin-left: 50%;
-margin-top: 150px;
+margin-left: -5%;
+margin-top: -150px;
+margin-bottom: 800px;
 }
 
 .modal {

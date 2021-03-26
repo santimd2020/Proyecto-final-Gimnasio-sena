@@ -107,7 +107,7 @@
                       Error,solo se admiten <br> numeros en este campo
                     </p>
                   </div>
-                
+  
                 <input type="number" class="form-control" formControlName="edad" placeholder="Edad" pattern="[0-9]+"style="width:70px;margin-left: 8px;">
                 <div *ngIf="form.get('edad').errors && form.get('edad').touched">
                     <p *ngIf="form.get('edad').hasError('required')" style="color: red;">

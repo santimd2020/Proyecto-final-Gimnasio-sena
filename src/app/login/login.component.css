@@ -4,7 +4,8 @@ width: fit-content;
 }
 .spinner-border {
 margin-left: 48%;
-margin-top: 50px;
+margin-top: -185px;
+margin-bottom: 150px;
 }
 
 .modal-body{

@@ -53,7 +53,6 @@ export class ActulizarusuarioComponent implements OnInit {
           this.form.get('apellidos').setValue(this.usuario[0]['apellidos']);
           this.form.get('telefono').setValue(this.usuario[0]['telefono']);
           this.form.get('edad').setValue(this.usuario[0]['edad']);
-          this.imagen = this.usuario[0]['imagen']
         },
       );
   }
