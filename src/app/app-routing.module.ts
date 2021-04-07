@@ -1,25 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RutinahomeComponent } from './rutinahome/rutinahome.component';
-import { DietashomeComponent } from './dietashome/dietashome.component';
-import { ConsultaejerciciosComponent } from './consultaejercicios/consultaejercicios.component';
-import { AgregarejercicioComponent } from './agregarejercicio/agregarejercicio.component';
-import { EditarejercicioComponent } from './editarejercicio/editarejercicio.component';
-import { EditarrutinaComponent } from './editarrutina/editarrutina.component';
-import { AgregarrutinasComponent } from './agregarrutinas/agregarrutinas.component';
-import { AgregardietasComponent } from './agregardietas/agregardietas.component';
-import { LoginComponent } from './login/login.component';
-import { EditardietaComponent } from './editardieta/editardieta.component';
-import { SistemaComponent } from './sistema/sistema.component';
-import { AnunciosComponent } from './anuncios/anuncios.component';
-import { AgregaranuncioComponent } from './agregaranuncio/agregaranuncio.component';
-import { EditaranuncioComponent } from './editaranuncio/editaranuncio.component';
-import { RegistrousuarioComponent } from './registrousuario/registrousuario.component';
-import { UsuariosComponent } from './usuarios/usuarios.component';
-import { ActulizarusuarioComponent } from './actulizarusuario/actulizarusuario.component';
-import { ActualizarperfilComponent } from './actualizarperfil/actualizarperfil.component';
-import { PerfilComponent } from './perfil/perfil.component';
-import { GuardiaService } from './guardia.service';
+import { RutinahomeComponent } from './componentes/rutinahome/rutinahome.component';
+import { DietashomeComponent } from './componentes/dietashome/dietashome.component';
+import { ConsultaejerciciosComponent } from './componentes/consultaejercicios/consultaejercicios.component';
+import { AgregarejercicioComponent } from './componentes/agregarejercicio/agregarejercicio.component';
+import { EditarejercicioComponent } from './componentes/editarejercicio/editarejercicio.component';
+import { EditarrutinaComponent } from './componentes/editarrutina/editarrutina.component';
+import { AgregarrutinasComponent } from './componentes/agregarrutinas/agregarrutinas.component';
+import { AgregardietasComponent } from './componentes/agregardietas/agregardietas.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { EditardietaComponent } from './componentes/editardieta/editardieta.component';
+import { SistemaComponent } from './componentes/sistema/sistema.component';
+import { AnunciosComponent } from './componentes/anuncios/anuncios.component';
+import { AgregaranuncioComponent } from './componentes/agregaranuncio/agregaranuncio.component';
+import { EditaranuncioComponent } from './componentes/editaranuncio/editaranuncio.component';
+import { RegistrousuarioComponent } from './componentes/registrousuario/registrousuario.component';
+import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
+import { ActulizarusuarioComponent } from './componentes/actulizarusuario/actulizarusuario.component';
+import { ActualizarperfilComponent } from './componentes/actualizarperfil/actualizarperfil.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { GuardiaService } from './servicios/guardia.service/guardia.service';
+
 
 
 const routes: Routes = [
