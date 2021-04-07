@@ -5,7 +5,7 @@
 
         <h1 style="color: rgb(255, 123, 0); text-align: center;">Bienvenido al Gimnasio del Sena<br><br></h1>
         <div class="row">
-           
+
             <div class="col-xs-12 col-sm-6 col-md-4 shadow " *ngFor="let usuarios of usuario">
 
                 <img style="width: 80px; height: 80px;" src="{{usuarios.imagen}}" class="float-left rounded">
@@ -17,15 +17,19 @@
 
                 </p>
                 <strong>Configuracion</strong>
-                
-                <div class="card-body text-center" >
-                    <button type="submit" (click)="cambiarcontrasena()" style="margin: auto;width:fit-content;"class="btn btn-warning">Cambiar contraseña <i class="fas fa-key"></i></button>
-                    <button type="submit" style="margin: 5px;" (click)="actulizar()" class="btn btn-primary">Actualizar<i class="far fa-save"></i></button>
+
+                <div class="card-body text-center">
+                    <button type="submit" (click)="cambiarcontrasena()" style="margin: auto;width:fit-content;"
+                        class="btn btn-warning">Cambiar contraseña <i class="fas fa-key"></i></button>
+                    <button type="submit" style="margin: 5px;" (click)="actulizar()"
+                        class="btn btn-primary">Actualizar<i class="far fa-save"></i></button>
                     <div *ngFor="let rutinas of rutinas">
-                    <button type="submit"  data-bs-toggle="modal" data-bs-target="#exampleModal"(click)="ejercicio(rutinas.ejercicios)" class="btn btn-success">Rutina <i class="fas fa-dumbbell"></i></button>
+                        <button type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            (click)="ejercicio(rutinas.ejercicios)" class="btn btn-success">Rutina <i
+                                class="fas fa-dumbbell"></i></button>
+                    </div>
                 </div>
-                </div>
-              
+
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-4 ">
@@ -94,8 +98,10 @@
                             </div>
 
                             <div class="col-md-12">
-                            <textarea class="form-control" id="textarea" formControlName="descripcion" rows="3"></textarea>
-                        </div>
+                                <label class="form-label">Descripcion</label>
+                                <textarea class="form-control" id="textarea" formControlName="descripcion"
+                                    rows="3"></textarea>
+                            </div>
 
                         </form>
                         <br>
@@ -121,9 +127,8 @@
                                             <td>{{item.descripcion}}</td>
                                             <td>{{item.dia}}</td>
                                             <td>{{item.ejecucion}}</td>
-                                            <td><a href={{item.imagen}} target="_blank"><img
-                                                        src="{{item.imagen}}" alt="" width="200"
-                                                        height="100px"></a></td>
+                                            <td><a href={{item.imagen}} target="_blank"><img src="{{item.imagen}}"
+                                                        alt="" width="200" height="100px"></a></td>
                                             <td>{{item.repeticiones}}</td>
                                             <td>{{item.series}}</td>
                                             <td>{{item.tipo}}</td>
