@@ -90,6 +90,12 @@ export class PerfilComponent implements OnInit {
 
   ejercicio(id) {
     this.ejercicios = id;
+    this.form.get('nombre').disable();
+    this.form.get('id').disable();
+    this.form.get('intensidad').disable();
+    this.form.get('categoria').disable();
+    this.form.get('dificultad').disable();
+    this.form.get('descripcion').disable();
   }
 
   actulizar() {

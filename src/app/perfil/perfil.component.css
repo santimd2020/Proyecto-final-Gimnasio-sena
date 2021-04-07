@@ -12,7 +12,7 @@ width: fit-content;
     height: max-content;
 }
 
-h2{
+h5{
 color: orange;
 text-align: center;
 }
@@ -46,3 +46,8 @@ margin-bottom: 800px;
   .modal .modal-body {
     overflow-y: auto;
   }
+
+
+#textarea {
+    resize: none;
+}
